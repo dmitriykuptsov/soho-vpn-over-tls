@@ -38,7 +38,7 @@
 
 \begin{document}
 \sloppy
-\title{Bypassing deep packet inspection: Tunneling VPN traffic over TLS}
+\title{SOHO box: Tunneling SOHO VPN traffic over TLS}
 \maketitle
 \begin{abstract}
 
@@ -60,10 +60,12 @@ such tunnels is high, bursts do exist, or connections are long living, then
 underlying TCP connections are reset by network operators. 
 
 Thus, here we make an experimental effort in this direction: 
-First, we describe different VPN solutions, which exist in the world;
-second, we describe how SSH traffic can be analyzed and blocked; and,
-finally, we describe our experimental effort with Python based software,
+First, we describe different VPN solutions, which exist in the Internet; 
+and, finally, we describe our experimental effort with Python based software,
 which allows users to create VPN tunnel using TLS protocol. 
+
+Unlike our previous effort here our goal is to route all traffic from small
+office/home office through TLS tunnel.
 
 \end{abstract}
 \input intro.tex

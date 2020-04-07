@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="topology.svg"
+   inkscape:version="0.91 r13725">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="-168.73234"
+     inkscape:cy="830.9458"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1323"
+     inkscape:window-height="744"
+     inkscape:window-x="43"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#be0000;fill-opacity:1;stroke-width:0.26458332"
+       y="26.763058"
+       x="38.044178"
+       height="6.0476193"
+       width="13.418155"
+       id="rect4520"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.29166651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="39.556087"
+       y="31.676746"
+       id="text4528"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000"><tspan
+         sodipodi:role="line"
+         id="tspan4526"
+         x="39.556087"
+         y="31.676746"
+         style="stroke-width:0.26458332">VPN</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 87.375429,38.76127 -36.199221,0.0078"
+       id="path4602"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <rect
+       style="fill:#be0000;fill-opacity:1;stroke-width:0.26458332"
+       y="35.584373"
+       x="86.977768"
+       height="6.0476193"
+       width="13.418155"
+       id="rect4635"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <text
+       id="text4645"
+       y="40.309078"
+       x="88.678665"
+       style="font-style:normal;font-weight:normal;font-size:5.29166651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000"><tspan
+         style="stroke-width:0.26458332"
+         y="40.309078"
+         x="88.678665"
+         id="tspan4643"
+         sodipodi:role="line">VPN</tspan></text>
+    <rect
+       y="35.680984"
+       x="38.221157"
+       height="7.5595226"
+       width="13.418155"
+       id="rect4681"
+       style="fill:#0000be;fill-opacity:1;stroke-width:0.17940429"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <ellipse
+       style="fill:#26ffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.30149436;stroke-opacity:1"
+       id="path4730"
+       cx="60.050968"
+       cy="39.119442"
+       rx="0.75595242"
+       ry="1.7481399"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4732"
+       d="m 76.974013,37.268875 -16.920894,0.0078"
+       style="fill:#26ffff;fill-opacity:1;stroke:#000000;stroke-width:0.34263524;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <path
+       style="fill:#26ffff;fill-opacity:1;stroke:#000000;stroke-width:0.34263524;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 77.02126,40.859649 -16.920894,0.0078"
+       id="path4734"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <ellipse
+       ry="1.7481399"
+       rx="0.75595242"
+       cy="39.024948"
+       cx="77.059891"
+       id="ellipse4736"
+       style="fill:#26ffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.30149436;stroke-opacity:1"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="63.358257"
+       y="36.190128"
+       id="text4740"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000"><tspan
+         sodipodi:role="line"
+         id="tspan4738"
+         x="63.358257"
+         y="36.190128"
+         style="stroke-width:0.26458332">TLS tunnel</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="115.47173"
+       y="39.876999"
+       id="text4744"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000"><tspan
+         sodipodi:role="line"
+         id="tspan4742"
+         x="115.47173"
+         y="39.876999"
+         style="stroke-width:0.26458332;font-size:3.17499988px">Internet</tspan></text>
+    <ellipse
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80b3ff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.28222221;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="path4196"
+       cx="22.664459"
+       cy="26.024338"
+       rx="3.7061374"
+       ry="3.5635936"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <ellipse
+       ry="3.5635936"
+       rx="3.7061374"
+       cy="38.283092"
+       cx="22.664459"
+       id="ellipse4198"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80b3ff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.28222221;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <ellipse
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#80b3ff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.28222221;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="ellipse4200"
+       cx="22.379372"
+       cy="50.256771"
+       rx="3.7061374"
+       ry="3.5635936"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <path
+       inkscape:export-ydpi="1000"
+       inkscape:export-xdpi="1000"
+       inkscape:connector-curvature="0"
+       id="path4223"
+       d="m 113.49972,39.053986 -13.1012,0.03"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="34.780674"
+       y="23.886179"
+       id="text4227"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000"><tspan
+         sodipodi:role="line"
+         id="tspan4229"
+         x="34.780674"
+         y="23.886179">SoHo VPN box</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="36.491196"
+       y="47.548443"
+       id="text4231"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000"><tspan
+         sodipodi:role="line"
+         id="tspan4233"
+         x="36.491196"
+         y="47.548443">Home router</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 26.206349,50.257142 C 46.869048,44.411109 45.155555,32.719046 45.155555,32.719046"
+       id="path4262"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 45.054762,32.517461 c 0,0 2.822223,5.543648 4.938889,5.946825 2.116667,0.403175 2.116667,0.403175 2.116667,0.403175"
+       id="path4268"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 26.307143,38.464286 c 9.474602,0.705556 18.848412,-5.74524 18.848412,-5.74524"
+       id="path4270"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 26.105555,27.477777 c 0,0 1.209524,11.389684 10.180159,8.970636 8.970634,-2.419048 8.769048,-3.930952 8.769048,-3.930952"
+       id="path4272"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="17.532881"
+       y="21.177849"
+       id="text4274"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="1000"
+       inkscape:export-ydpi="1000"><tspan
+         sodipodi:role="line"
+         x="17.532881"
+         y="21.177849"
+         id="tspan4278">Clients</tspan></text>
+  </g>
+</svg>

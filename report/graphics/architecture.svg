@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    sodipodi:docname="architecture.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.91 r13725">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="78.241408"
+     inkscape:cx="156.59477"
      inkscape:cy="934.09662"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1853"
-     inkscape:window-height="1025"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
+     inkscape:window-width="1323"
+     inkscape:window-height="744"
+     inkscape:window-x="43"
+     inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -52,18 +52,9 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       id="rect3713"
-       width="13.418155"
-       height="6.0476193"
-       x="14.552083"
-       y="7.9616084"
        style="fill:#be0000;fill-opacity:1;stroke-width:0.26458332"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300" />
-    <rect
-       style="fill:#be0000;fill-opacity:1;stroke-width:0.26458332"
-       y="7.9616084"
-       x="32.505951"
+       y="9.3727198"
+       x="44.601189"
        height="6.0476193"
        width="13.418155"
        id="rect4520"
@@ -72,41 +63,19 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:5.29166651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="16.252977"
-       y="12.875299"
-       id="text4524"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300"><tspan
-         sodipodi:role="line"
-         id="tspan4522"
-         x="16.252977"
-         y="12.875299"
-         style="stroke-width:0.26458332">APP</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:5.29166651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="34.01786"
-       y="12.875299"
+       x="46.113098"
+       y="14.28641"
        id="text4528"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan4526"
-         x="34.01786"
-         y="12.875299"
+         x="46.113098"
+         y="14.28641"
          style="stroke-width:0.26458332">VPN</tspan></text>
     <rect
-       style="fill:#0000be;fill-opacity:1;stroke-width:0.26458332"
-       id="rect4530"
-       width="13.418155"
-       height="16.441963"
-       x="14.552083"
-       y="17.713396"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300" />
-    <rect
-       y="17.713396"
-       x="32.505951"
+       y="19.124508"
+       x="44.601189"
        height="16.441963"
        width="13.418155"
        id="rect4544"
@@ -114,39 +83,39 @@
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.24928245;stroke-miterlimit:4;stroke-dasharray:0.24928245,0.74784736;stroke-dashoffset:0.07977039;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.24928245;stroke-miterlimit:4;stroke-dasharray:0.24928245, 0.74784736;stroke-dashoffset:0.07977039;stroke-opacity:1"
        id="rect4556"
        width="32.33268"
        height="18.687738"
-       x="14.128451"
-       y="16.722795"
+       x="26.22369"
+       y="18.133907"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="16.630953"
-       y="45.267857"
+       x="28.726191"
+       y="46.678967"
        id="text4566"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan4564"
-         x="16.630953"
-         y="45.267857"
+         x="28.726191"
+         y="46.678967"
          style="stroke-width:0.26458332">Kernel space</tspan></text>
     <rect
        style="fill:#0000be;fill-opacity:1;stroke:#000000;stroke-width:0.24928245;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.30149436;stroke-opacity:1"
        id="rect4568"
        width="4.1577382"
        height="4.5357141"
-       x="10.961309"
-       y="41.866074"
+       x="23.056547"
+       y="43.277184"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       y="47.460121"
-       x="10.961309"
+       y="48.871231"
+       x="23.056547"
        height="4.5357141"
        width="4.1577382"
        id="rect4570"
@@ -156,121 +125,88 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="16.819939"
-       y="50.748512"
+       x="28.915176"
+       y="52.159622"
        id="text4574"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan4572"
-         x="16.819939"
-         y="50.748512"
+         x="28.915176"
+         y="52.159622"
          style="stroke-width:0.26458332">Userspace</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 75.179397,37.511428 -36.199221,0.0078"
+       d="m 87.274635,38.922539 -36.199221,0.0078"
        id="path4602"
-       inkscape:connector-curvature="0"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 21.121281,37.527846 0.02981,-23.594872"
-       id="path4606"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        inkscape:connector-curvature="0"
        id="path4617"
-       d="m 38.982981,37.519295 0.02981,-23.594872"
-       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 51.078219,38.930406 0.02981,-23.594872"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="18.294048"
-       y="23.005056"
-       id="text4578"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300"><tspan
-         sodipodi:role="line"
-         id="tspan4576"
-         x="18.294048"
-         y="23.005056"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">TCP</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="19.99494"
-       y="30.148809"
-       id="text4582"
-       inkscape:export-xdpi="300"
-       inkscape:export-ydpi="300"><tspan
-         sodipodi:role="line"
-         id="tspan4580"
-         x="19.99494"
-         y="30.148809"
-         style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">IP</tspan></text>
-    <text
        id="text4586"
-       y="23.005056"
-       x="36.021133"
+       y="24.416168"
+       x="48.116371"
        style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
-         y="23.005056"
-         x="36.021133"
+         y="24.416168"
+         x="48.116371"
          id="tspan4584"
          sodipodi:role="line">TCP</tspan></text>
     <text
        id="text4590"
-       y="30.148809"
-       x="37.722023"
+       y="31.559921"
+       x="49.817261"
        style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
-         y="30.148809"
-         x="37.722023"
+         y="31.559921"
+         x="49.817261"
          id="tspan4588"
          sodipodi:role="line">IP</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path4627"
-       d="m 21.120877,37.527823 -9.167505,0.0079"
-       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 31.603417,38.737347 -9.167505,0.0079"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        inkscape:connector-curvature="0"
        id="path4629"
-       d="M 11.953455,37.536704 11.983099,4.8684413"
-       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 41.989963,38.947815 42.019607,6.2795524"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        inkscape:connector-curvature="0"
        id="path4631"
-       d="m 39.316638,4.8605404 -27.333483,0.0079"
-       style="fill:none;stroke:#000000;stroke-width:0.49806634;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 51.410884,6.2716234 -9.188641,0.00796"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 38.976333,7.8546451 0.03045,-2.9930383"
+       d="m 51.071571,9.2657562 0.03045,-2.9930383"
        id="path4633"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
        style="fill:#be0000;fill-opacity:1;stroke-width:0.26458332"
-       y="7.9452133"
-       x="68.610603"
+       y="9.3563242"
+       x="80.705841"
        height="6.0476193"
        width="13.418155"
        id="rect4635"
@@ -278,20 +214,20 @@
        inkscape:export-ydpi="300" />
     <text
        id="text4645"
-       y="12.669917"
-       x="70.311501"
+       y="14.081028"
+       x="82.406738"
        style="font-style:normal;font-weight:normal;font-size:5.29166651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          style="stroke-width:0.26458332"
-         y="12.669917"
-         x="70.311501"
+         y="14.081028"
+         x="82.406738"
          id="tspan4643"
          sodipodi:role="line">VPN</tspan></text>
     <rect
-       y="17.697001"
-       x="68.610603"
+       y="19.108112"
+       x="80.705841"
        height="16.441963"
        width="13.418155"
        id="rect4647"
@@ -299,8 +235,8 @@
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
-       y="16.7064"
-       x="68.186974"
+       y="18.117512"
+       x="80.282211"
        height="18.687738"
        width="32.33268"
        id="rect4651"
@@ -310,39 +246,39 @@
     <path
        inkscape:connector-curvature="0"
        id="path4653"
-       d="m 75.179801,37.511451 0.02981,-23.594872"
+       d="M 87.275039,38.922562 87.304849,15.32769"
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <text
        id="text4659"
-       y="22.988661"
-       x="72.35257"
+       y="24.399773"
+       x="84.447807"
        style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
-         y="22.988661"
-         x="72.35257"
+         y="24.399773"
+         x="84.447807"
          id="tspan4657"
          sodipodi:role="line">TCP</tspan></text>
     <text
        id="text4663"
-       y="30.132414"
-       x="74.053459"
+       y="31.543526"
+       x="86.148697"
        style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
-         y="30.132414"
-         x="74.053459"
+         y="31.543526"
+         x="86.148697"
          id="tspan4661"
          sodipodi:role="line">IP</tspan></text>
     <rect
-       y="17.734798"
-       x="86.564468"
+       y="19.14591"
+       x="98.659706"
        height="7.5595226"
        width="13.418155"
        id="rect4681"
@@ -352,40 +288,40 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="89.701675"
-       y="22.988661"
+       x="101.79691"
+       y="24.399773"
        id="text4667"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan4665"
-         x="89.701675"
-         y="22.988661"
+         x="101.79691"
+         y="24.399773"
          style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332">NAT</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path4631-3"
-       d="m 84.415877,10.80993 -2.387122,0.0079"
+       d="m 96.511115,12.221041 -2.387122,0.0079"
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.49405211;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 84.386195,37.696906 0.02972,-26.886403"
+       d="m 96.481433,39.108017 0.02972,-26.886403"
        id="path4716"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 91.766151,37.688997 -7.379437,0.0079"
+       d="m 103.86139,39.100108 -7.379438,0.0079"
        id="path4718"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 91.71066,37.652709 91.74047,23.846298"
+       d="m 103.8059,39.06382 0.0298,-13.806411"
        id="path4720"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="300"
@@ -393,29 +329,29 @@
     <path
        inkscape:connector-curvature="0"
        id="path4722"
-       d="m 94.676911,23.83835 -2.934666,0.008"
+       d="m 106.77215,25.249461 -2.93467,0.008"
        style="fill:none;stroke:#000000;stroke-width:0.3172223;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        inkscape:connector-curvature="0"
        id="path4724"
-       d="M 94.647101,37.644761 94.676911,23.83835"
+       d="m 106.74234,39.055872 0.0298,-13.806411"
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        inkscape:connector-curvature="0"
        id="path4726"
-       d="m 102.02654,37.636861 -7.379439,0.0079"
+       d="m 114.12178,39.047972 -7.37944,0.0079"
        style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <ellipse
        style="fill:#26ffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.30149436;stroke-opacity:1"
        id="path4730"
-       cx="47.95573"
-       cy="37.708332"
+       cx="60.050968"
+       cy="39.119442"
        rx="0.75595242"
        ry="1.7481399"
        inkscape:export-xdpi="300"
@@ -423,13 +359,13 @@
     <path
        inkscape:connector-curvature="0"
        id="path4732"
-       d="m 64.878775,35.857764 -16.920894,0.0078"
+       d="m 76.974013,37.268875 -16.920894,0.0078"
        style="fill:#26ffff;fill-opacity:1;stroke:#000000;stroke-width:0.34263524;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <path
        style="fill:#26ffff;fill-opacity:1;stroke:#000000;stroke-width:0.34263524;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 64.926022,39.448538 -16.920894,0.0078"
+       d="m 77.02126,40.859649 -16.920894,0.0078"
        id="path4734"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="300"
@@ -437,8 +373,8 @@
     <ellipse
        ry="1.7481399"
        rx="0.75595242"
-       cy="37.613838"
-       cx="64.964653"
+       cy="39.024948"
+       cx="77.059891"
        id="ellipse4736"
        style="fill:#26ffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0.30149436;stroke-opacity:1"
        inkscape:export-xdpi="300"
@@ -446,32 +382,32 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="51.26302"
-       y="34.779018"
+       x="63.358257"
+       y="36.190128"
        id="text4740"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan4738"
-         x="51.26302"
-         y="34.779018"
+         x="63.358257"
+         y="36.190128"
          style="stroke-width:0.26458332">TLS tunnel</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="103.37649"
-       y="38.180801"
+       x="115.47173"
+       y="39.591911"
        id="text4744"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan4742"
-         x="103.37649"
-         y="38.180801"
+         x="115.47173"
+         y="39.591911"
          style="stroke-width:0.26458332">Internet</tspan></text>
     <rect
-       y="7.4371328"
-       x="14.093271"
+       y="8.8482437"
+       x="26.188509"
        height="7.4687638"
        width="32.355312"
        id="rect4746"
@@ -483,9 +419,79 @@
        id="rect4748"
        width="32.355312"
        height="7.4687638"
-       x="68.081436"
-       y="7.4160466"
+       x="80.176674"
+       y="8.827158"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
+    <rect
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       style="fill:#0000be;fill-opacity:1;stroke-width:0.17940429"
+       id="rect4193"
+       width="13.418155"
+       height="7.5595226"
+       x="27.015579"
+       y="18.98464" />
+    <text
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       id="text4195"
+       y="24.238504"
+       x="30.152788"
+       style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332"
+         y="24.238504"
+         x="30.152788"
+         id="tspan4197"
+         sodipodi:role="line">NAT</tspan></text>
+    <path
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       style="fill:none;stroke:#000000;stroke-width:0.3172223;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 35.128023,25.088192 -2.934666,0.008"
+       id="path4199"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       inkscape:connector-curvature="0"
+       id="path4201"
+       d="m 31.637644,38.862233 0.02981,-13.806411"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       style="fill:none;stroke:#000000;stroke-width:0.3172223;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 34.603895,25.047874 -2.934666,0.008"
+       id="path4203"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 34.574085,38.854285 0.02981,-13.806411"
+       id="path4205"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 41.751936,38.846385 -7.379439,0.0079"
+       id="path4207"
+       inkscape:connector-curvature="0" />
+    <text
+       inkscape:export-ydpi="300"
+       inkscape:export-xdpi="300"
+       id="text4209"
+       y="38.987148"
+       x="13.266971"
+       style="font-style:normal;font-weight:normal;font-size:2.11666656px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         y="38.987148"
+         x="13.266971"
+         id="tspan4211"
+         sodipodi:role="line">Intranet</tspan></text>
   </g>
 </svg>
