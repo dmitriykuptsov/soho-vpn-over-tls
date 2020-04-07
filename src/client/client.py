@@ -23,6 +23,7 @@ from common import utils
 from common import tun
 from common import routing
 from common import dns
+from common import nat
 
 # Client configuration file
 import config
@@ -60,6 +61,7 @@ class Client():
 		"""
 		self.routing_ = routing.Routing();
 		self.dns_ = dns.DNS();
+		self.nat_ = nat.NAT();
 
 	"""
 	Writes data to TUN interface
@@ -183,6 +185,8 @@ class Client():
 					self.routing_.configure_default_route(bytearray(p.get_ipv4_address()).decode(encoding="ASCII"));
 					self.routing_.configure_tunnel_route(self.server_ip, self.default_gw);
 					self.dns_.configure_dns(self.dns_server);
+					self.nat_.enable_forwarding();
+					self.nat_.masquerade_tun_interface();
 					self.sm.configured();
 			elif self.sm.is_configured():
 				self.tun_thread = threading.Thread(target = self.tun_loop);
