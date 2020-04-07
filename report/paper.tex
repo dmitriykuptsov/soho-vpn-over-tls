@@ -1,0 +1,79 @@
+\documentclass[conference,10pt,letter]{IEEEtran}
+
+\usepackage{url}
+\usepackage{amssymb,amsthm}
+\usepackage{graphicx,color}
+
+%\usepackage{balance}
+
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{color, colortbl}
+\usepackage{times}
+\usepackage{caption}
+\usepackage{rotating}
+\usepackage{subcaption}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\XXXnote}[1]{{\bf\color{red} XXX: #1}}
+\newcommand{\YYYnote}[1]{{\bf\color{red} YYY: #1}}
+\newcommand*{\etal}{{\it et al.}}
+
+\newcommand{\eat}[1]{}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\im}{\item}
+\newcommand{\eg}{{\it e.g.}\xspace}
+\newcommand{\ie}{{\it i.e.}\xspace}
+\newcommand{\etc}{{\it etc.}\xspace}
+
+\def\P{\mathop{\mathsf{P}}}
+\def\E{\mathop{\mathsf{E}}}
+
+\begin{document}
+\sloppy
+\title{Bypassing deep packet inspection: Tunneling VPN traffic over TLS}
+\maketitle
+\begin{abstract}
+
+In some countries network operators employ deep packet inspection techniques 
+in order to block certain types of traffic. For example, Virtual Private Network 
+(VPN) traffic can be analyzed and blocked to prevent non-cooperative users from 
+sending encrypted packets over such networks. 
+
+By observing that HTTPS works all over the world (configured for extremely large
+number of web-servers) and cannot be easily analyzed (the payload is usually encrypted),
+we argue that in the same manner VPN tunneling can be organized: By masquerading 
+the VPN traffic with TLS or its older version - SSL, we can build a reliable and 
+secure network. Packets, which are sent over such tunnels, can cross multiple
+domains, which have various (strict and not so strict) security policies. 
+Despite that the SSH can be potentially used to build such network, 
+we have evidence that in certain countries connections
+made over such tunnels are analyzed statistically: If the network utilization by 
+such tunnels is high, bursts do exist, or connections are long living, then 
+underlying TCP connections are reset by network operators. 
+
+Thus, here we make an experimental effort in this direction: 
+First, we describe different VPN solutions, which exist in the world;
+second, we describe how SSH traffic can be analyzed and blocked; and,
+finally, we describe our experimental effort with Python based software,
+which allows users to create VPN tunnel using TLS protocol. 
+
+\end{abstract}
+\input intro.tex
+\input background.tex
+\input hardware.tex
+\input experimental.tex
+\input conclusions.tex
+%\balance
+\bibliographystyle{abbrv}
+\bibliography{mybib}
+
+\end{document}
+

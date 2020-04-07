@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: paper.aux
+The style file: abbrv.bst
+Database file #1: mybib.bib
+Warning--to sort, need author or key in hip
+Warning--to sort, need author or key in temperednetworks
+Warning--to sort, need author or key in ssh
+Warning--to sort, need author or key in openvpn
+Warning--to sort, need author or key in ipsec
+Warning--to sort, need author or key in ike
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            514 strings with 4234 characters,
+and the built_in function-call counts, 974 in all, are:
+= -- 90
+> -- 6
+< -- 0
++ -- 6
+- -- 0
+* -- 32
+:= -- 111
+add.period$ -- 12
+call.type$ -- 6
+change.case$ -- 18
+chr.to.int$ -- 0
+cite$ -- 12
+duplicate$ -- 42
+empty$ -- 139
+format.name$ -- 0
+if$ -- 241
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 0
+newline$ -- 27
+num.names$ -- 0
+pop$ -- 48
+preamble$ -- 1
+purify$ -- 12
+quote$ -- 0
+skip$ -- 48
+stack$ -- 0
+substring$ -- 30
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 6
+while$ -- 0
+width$ -- 7
+write$ -- 44
+(There were 6 warnings)

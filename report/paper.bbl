@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{hip}
+Host identity protocol.
+\newblock {\url{https://en.wikipedia.org/wiki/Host_Identity_Protocol}}.
+
+\bibitem{ike}
+Internet key exchange.
+\newblock {\url{https://en.wikipedia.org/wiki/Internet_Key_Exchange}}.
+
+\bibitem{ipsec}
+Ipsec.
+\newblock {\url{https://en.wikipedia.org/wiki/IPsec}}.
+
+\bibitem{openvpn}
+Openvpn.
+\newblock {\url{https://en.wikipedia.org/wiki/Secure_Shell}}.
+
+\bibitem{ssh}
+Secure shell.
+\newblock {\url{https://en.wikipedia.org/wiki/Secure_Shell}}.
+
+\bibitem{temperednetworks}
+Tempered networks simplifies secure network connectivity and microsegmentation.
+\newblock
+  {\url{https://www.networkworld.com/article/3405853/tempered-networks-simplifies-secure-network-connectivity-and-microsegmentation.html}}.
+
+\end{thebibliography}

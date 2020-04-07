@@ -1,0 +1,32 @@
+\section{Background}
+\label{section:background}
+
+There are various solutions which can be used to build VPNs.
+One example, is Host Identity Protocols (HIP)~\cite{hip}. 
+HIP is a layer 3.5 solution (it is in fact located between transport
+and network layers) and was originally designed to 
+split the dual role of IP addresses - identifier and locator.
+For example, a company called Tempered Networks uses HIP protocol
+to build secure networks (for sampling see~\cite{temperednetworks}).
+
+Another solution is Secure Shell protocol (or SSH)~\cite{ssh}. SSH is
+application layer protocol which provides an encrypted channel for insecure
+networks. SSH was originally designed to provide secure  
+remote command-line, login, and command execution. But in fact, 
+any network service can be secured with SSH. Moreover, SSH provides
+means for creating VPN tunnels between the spatially separated networks.
+Unfortunately, SSH connection can be analyzed and blocked (would it be as 
+widely spread as for example example TLS protocol, things could be different).
+
+Like SSH, OpenVPN~\cite{openvpn} runs on top of UDP or TCP protocols.
+We have evidence that in certain countries OpenVPN is successfully blocked 
+by governments. Of course, it is harder to detect these protocols because 
+the traffic is encapsulated inside TCP/UDP connections and deep packet
+inspection solutions are required in order to effectively block such tunnels.
+
+Another widely used layer 3 protocol for building the VPNs is IPSec 
+protocol~\cite{ipsec}. In IPSec security association can be established using 
+pre-shared keys or using Internet Key Exchange protocols (IKE and IKEv2)~\cite{ike}.
+Because IPsec runs directly on top of IP protocol, it can be easily detected without
+usage of sophisticated packet inspection solutions.
+  

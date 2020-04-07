@@ -1,0 +1,13 @@
+\section{Hardware and software}
+\label{sec:hardware}
+
+To implement the VPN client and server we have used Python framework. The implementation
+consists roughly $1.2$K LOC and all functions are realized in userspace.
+
+During the experiments, however, we have considered the following setup.
+For hardware we have selected a micro instance from UpCloud. The instance had 
+single core CPU, $25$ GB of data storage, $1$GB of random access memory, and was 
+located in Frankfurt, Germany. The client machine was located in Tashkent, Uzbekistan. 
+For software we have selected (on both ends) Ubuntu 18.04. We have also used iperf tool 
+to measure the throughput, and we have used ping utility to measure the round trip times. 
+
