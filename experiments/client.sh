@@ -3,5 +3,6 @@
 for i in {1..50}
 do
 	echo "Doing experiment number $i";
-	iperf -c $1 -p 443
+	#iperf -c $1 -p 443
+	iperf -c $1 -p 80
 done
