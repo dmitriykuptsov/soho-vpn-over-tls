@@ -1,10 +1,11 @@
-# VPN over TLS 
+# SOHO VPN over TLS 
 
 VPN over TLS is a project with one main purpose - allow VPN connections in countries with strict 
 security policies. For example, we have seen that in some countries OpenVPN and SSH traffic is not
 allowed. This puts certain limitations on the Internet usage. By deploying the VPN over TLS solution
 on your custom cloud server makes it extremely hard for security personnel to track your connections.
-Most importantly the traffic that you will be sending looks like normal HTTPS,
+Most importantly the traffic that you will be sending looks like normal HTTPS. This solution 
+should be deployed on a SOHO VPN box.
 
 # Installation
 
@@ -71,76 +72,21 @@ On server machine, go to directory vpn_over_tls/src and run the following comman
 $ sudo python3 server/server.py
 ```
 
-On client machine, go to directory vpn_over_tls/src and run the following command:
+On SOHO box (we use Raspberry PI as such), go to directory vpn_over_tls/src and run the following command:
 
 ```
 $ sudo python3 client/client.py
 ```
 
-# Manual configuration
+# Client configuration
 
-Newer version of VPN software automatically performs configuration of the client and server machines. However,
-if for some reason the user needs to manually configure, he or she can follow the instructions presented below.
-
-Open new terminal windows on both client and server (leave previous two windows open so that the VPN software will be running).
-
-On server machine, execute the following commands in the console:
-
-(i) Enable forwarding between the interfaces
-
-```
-$ sudo sysctl -w net.ipv4.ip_forward=1
-```
-
-(ii) Enable NAT in iptables
-
-```
-$ sudo iptables -t nat -A POSTROUTING ! -o lo -j MASQUERADE
-```
-
-On client machine, execute the following commands:
-
-(i) Delete default route 
-
-```
-$ sudo ip route del default via 10.0.2.2
-```
-
-You will need to change IP address 10.0.2.2 with IP address of your default gateway!
-
-(ii) Add route for tunnel 
-
-```
-$ sudo ip route add 94.237.31.77 via 10.0.2.2
-```
-
-You will neede to substitute 94.237.31.77 with IP address of your VPN server, and also change 10.0.2.2
-with IP address of your default gateway!
-
-(iii) Route all traffic through the tun interface
-
-```
-$ sudo ip route add default via 10.0.0.2
-```
-
-(iv) Change default DNS to, for example, 8.8.8.8. Do not use DNS offered by your DHCP, because it will not be reachable.
-To modify the DNS modify the /etc/resolv.conf file.
+On client machine you need to modify the default gateway: Configure the default gateway
+with the IP address of your SOHO box IP address and you should be all set.
 
 # Testing the VPN
 
 Now you should have VPN up and running. Lets make few tests.
 
-(i) Lets ping directly VPN server:
-
-```
-$ ping 10.0.0.1
-```
-
-(ii) Test TCP connection to one of the Yandex webservers:
-```
-$ nc -vv ya.ru 443
-```
-
-(iii) And finally you can open your web browser, type ya.ru, for example, and 
+Open your web browser, type ya.ru, for example, and 
 check your IP address - it should be the IP address of the VPN server if 
 everything was configured correctly.
