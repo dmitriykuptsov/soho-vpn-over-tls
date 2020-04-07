@@ -64,6 +64,10 @@ $ python3 tools/gen.py test
 
 Then, copy the generated hash string and add it to the database.dat file in the vpn_over_ssl/server/ folder (you might also want to change the default username in that database file).
 
+Finally, it is probably needed to set TCP keepalive, so that connections will be long living:
+
+https://blog.voina.org/tcp-keepalive-what-is-it-why-do-you-need-it-how-to-configure-it-on-linux/
+
 # Running the VPN
 
 On server machine, go to directory vpn_over_tls/src and run the following command:

@@ -29,6 +29,8 @@ PACKET_TYPE_CONFIGURATION  = 0x2;
 PACKET_TYPE_DATA           = 0x3;
 PACKET_TYPE_ACK            = 0x4;
 PACKET_TYPE_NACK           = 0x5;
+PACKET_TYPE_PING           = 0x6;
+PACKET_TYPE_PONG           = 0x7;
 
 # Import structures
 import struct
@@ -368,6 +370,22 @@ class DataPacket(Packet):
 		for attribute in attributes:
 			if attribute.get_type() == ATTR_TYPE_USERDATA:
 				return attribute.get_value();
+
+class PingPacket(Packet):
+	"""
+	Initializes the buffer
+	"""
+	def __init__(self, buf = None):
+		super().__init__(buf);
+		self.set_type(PACKET_TYPE_PING);
+
+class PongPacket(Packet):
+	"""
+	Initializes the buffer
+	"""
+	def __init__(self, buf = None):
+		super().__init__(buf);
+		self.set_type(PACKET_TYPE_PONG);
 
 """
 auth = AuthenticationPacket();
