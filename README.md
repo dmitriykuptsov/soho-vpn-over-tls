@@ -49,7 +49,7 @@ If needed, on server machine go to the directory vpn_over_tls/src/server and mod
 IP address of the tun interface in config.py file (currently it is set to 10.0.0.1, you may leave it as it is
 if there is no conflict with your local IP address).
 
-On client machine, also go to directory vpn_over_tls/src/client and modify the IP address the server in the config.py
+On SOHO box also go to directory vpn_over_tls/src/client and modify the IP address the server in the config.py
 file (currently it is 94.237.31.77, but you have to change it to an IP address of your own server (on server machine you 
 can check the IP address either from administrative page, like it is offered in UpCloud or DigitalOcean, or by issuing ifconfig command))
 
