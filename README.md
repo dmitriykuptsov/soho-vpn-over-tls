@@ -41,8 +41,9 @@ your hard drive and checkout the project's repository (we need to do so on both 
 usual):
 
 ```
-$ git clone https://github.com/dmitriykuptsov/vpn_over_tls.git
+$ git clone https://github.com/dmitriykuptsov/soho_vpn_over_tls.git
 ```
+
 # Configuration
 
 If needed, on server machine go to the directory vpn_over_tls/src/server and modify the 
@@ -57,6 +58,7 @@ One, probably, needs to also modify the IP address of default gateway. Currently
 the default route of your network.
 
 Finally, you need to generate password for your user. To do so, do the following (replace the user test password with your own password):
+
 ```
 $ cd vpt_over_ssl/src
 $ python3 tools/gen.py test
