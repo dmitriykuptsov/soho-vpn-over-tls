@@ -117,7 +117,7 @@ class Server():
 		try:
 			self.client_socket.send(userdata.get_buffer());
 		except:
-			
+			raise Exception("Socket was closed");
 
 	"""
 	Reads data from secure socket
