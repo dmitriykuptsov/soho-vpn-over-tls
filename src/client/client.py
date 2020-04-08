@@ -200,7 +200,7 @@ class Client():
 				self.sm.running();
 			elif self.sm.is_running():
 				sleep(10);
-			elif self.is_stalled():
+			elif self.sm.is_stalled():
 				self.routing_.restore_default_route(self.default_gw);
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
