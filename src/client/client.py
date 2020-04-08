@@ -204,6 +204,7 @@ class Client():
 				self.routing_.restore_default_route(self.default_gw);
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
+				break;
 
 	def exit_handler(self):
 		self.routing_.restore_default_route(self.default_gw);
