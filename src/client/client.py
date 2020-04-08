@@ -124,7 +124,8 @@ class Client():
 				self.write_to_tun(self.read_from_secure_socket());
 			except:
 				print("Connection was closed, please restart the client...")
-				self.routing_.restore_default_route(self.default_gw);
+				#self.routing_.restore_default_route(self.default_gw);
+				self.state.stalled();
 				break;
 
 
@@ -138,7 +139,8 @@ class Client():
 				self.write_to_secure_socket(self.read_from_tun());
 			except:
 				print("Connection was closed, please restart the client...");
-				self.routing_.restore_default_route(self.default_gw);
+				#self.routing_.restore_default_route(self.default_gw);
+				self.state.stalled();
 				break;
 
 	"""
@@ -198,6 +200,10 @@ class Client():
 				self.sm.running();
 			elif self.sm.is_running():
 				sleep(10);
+			elif self.is_stalled():
+				self.routing_.restore_default_route(self.default_gw);
+				self.nat_.disable_masquerade_tun_interface();
+				self.nat_.disable_forwarding();
 
 	def exit_handler(self):
 		self.routing_.restore_default_route(self.default_gw);

@@ -204,6 +204,8 @@ class Server():
 					p = packet.AuthenticationPacket(buf);
 					try:
 						if p.get_type() != packet.PACKET_TYPE_AUTHENTICATION:
+							self.client_socket.close();
+							self.sm.unknown();
 							continue;
 						if utils.Utils.check_buffer_is_empty(p.get_password()):
 							print("Invalid credentials");
@@ -213,6 +215,7 @@ class Server():
 								self.client_socket.close();
 							except:
 								print("Failed to write into socket...");
+							self.client_socket.close();
 							self.sm.unknown();
 							continue;
 						if utils.Utils.check_buffer_is_empty(p.get_username()):
@@ -223,6 +226,7 @@ class Server():
 								self.client_socket.close();
 							except:
 								print("Failed to write into socket...");
+							self.client_socket.close();
 							self.sm.unknown();
 							continue;
 						if self.database.is_authentic(p.get_username(), p.get_password(), self.salt):
@@ -232,14 +236,17 @@ class Server():
 								self.client_socket.send(ack.get_buffer());
 							except:
 								print("Failed to write data into socket...");
+								self.client_socket.close();
 								self.sm.unknown();
 						else:
 							try:
 								nack = packet.NegativeAcknowledgementPacket();
 								self.client_socket.send(nack.get_buffer());
 								self.client_socket.close();
+								self.sm.unknown();
 							except:
 								print("Failed to write into socket...");
+							self.client_socket.close();
 							self.sm.unknown();
 					except:
 						self.client_socket.close();
@@ -257,6 +264,7 @@ class Server():
 					self.sm.configured();
 				except:
 					self.sm.unknown();
+					self.client_socket.close();
 					print("Failed to write into socket...");
 			elif self.sm.is_configured():
 				self.tun_thread = threading.Thread(target = self.tun_loop);

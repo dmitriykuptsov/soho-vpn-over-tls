@@ -4,6 +4,7 @@ VPN_TLS_STATE_WAITING_AUTHENTICATION = 0x3;
 VPN_TLS_STATE_AUTHENTICATED          = 0x4;
 VPN_TLS_STATE_CONFIGURED             = 0x5;
 VPN_TLS_STATE_RUNNING                = 0x6;
+VPN_TLS_STATE_STALLED                = 0x7;
 
 """
 VPN over TLS state
@@ -69,6 +70,9 @@ class StateMachine():
 	def is_running(self):
 		return self.state.get_state() == VPN_TLS_STATE_RUNNING;
 
+	def is_stalled(self):
+		return self.state.get_state() == VPN_TLS_STATE_STALLED;
+
 	def unknown(self):
 		self.state.set_state(VPN_TLS_STATE_UNKONWN);
 
@@ -101,3 +105,6 @@ class StateMachine():
 	"""
 	def running(self):
 		self.state.set_state(VPN_TLS_STATE_RUNNING);
+
+	def stalled(self):
+		self.state.set_state(VPN_TLS_STATE_STALLED);
