@@ -1,0 +1,12 @@
+[Unit]
+Description=VPN over TLS
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/vpn/
+ExecStart=python3 client/client.py
+
+[Install]
+WantedBy=multi-user.target
