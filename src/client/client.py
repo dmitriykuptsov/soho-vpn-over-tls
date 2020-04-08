@@ -125,7 +125,7 @@ class Client():
 			except:
 				print("Connection was closed, please restart the client...")
 				#self.routing_.restore_default_route(self.default_gw);
-				self.state.stalled();
+				self.sm.stalled();
 				break;
 
 
@@ -140,7 +140,7 @@ class Client():
 			except:
 				print("Connection was closed, please restart the client...");
 				#self.routing_.restore_default_route(self.default_gw);
-				self.state.stalled();
+				self.sm.stalled();
 				break;
 
 	"""
