@@ -199,59 +199,59 @@ class Server():
 					self.client_socket.close();
 					self.sm.unknown();
 					continue;
-				if len(buf) > 0:
-					print("Received authentication packet...");
-					p = packet.AuthenticationPacket(buf);
-					try:
-						if p.get_type() != packet.PACKET_TYPE_AUTHENTICATION:
-							self.client_socket.close();
-							self.sm.unknown();
-							continue;
-						if utils.Utils.check_buffer_is_empty(p.get_password()):
-							print("Invalid credentials");
-							try:
-								nack = packet.NegativeAcknowledgementPacket();
-								self.client_socket.send(nack.get_buffer());
-								self.client_socket.close();
-							except:
-								print("Failed to write into socket...");
-							self.client_socket.close();
-							self.sm.unknown();
-							continue;
-						if utils.Utils.check_buffer_is_empty(p.get_username()):
-							print("Invalid credentials");
-							try:
-								nack = packet.NegativeAcknowledgementPacket();
-								self.client_socket.send(nack.get_buffer());
-								self.client_socket.close();
-							except:
-								print("Failed to write into socket...");
-							self.client_socket.close();
-							self.sm.unknown();
-							continue;
-						if self.database.is_authentic(p.get_username(), p.get_password(), self.salt):
-							self.sm.authenticated();
-							try:
-								ack = packet.AcknowledgementPacket();
-								self.client_socket.send(ack.get_buffer());
-							except:
-								print("Failed to write data into socket...");
-								self.client_socket.close();
-								self.sm.unknown();
-						else:
-							try:
-								nack = packet.NegativeAcknowledgementPacket();
-								self.client_socket.send(nack.get_buffer());
-								self.client_socket.close();
-								self.sm.unknown();
-							except:
-								print("Failed to write into socket...");
-							self.client_socket.close();
-							self.sm.unknown();
-					except:
+				
+				print("Received authentication packet...");
+				p = packet.AuthenticationPacket(buf);
+				try:
+					if p.get_type() != packet.PACKET_TYPE_AUTHENTICATION:
 						self.client_socket.close();
 						self.sm.unknown();
-						print("Could not parse data");
+						continue;
+					if utils.Utils.check_buffer_is_empty(p.get_password()):
+						print("Invalid credentials");
+						try:
+							nack = packet.NegativeAcknowledgementPacket();
+							self.client_socket.send(nack.get_buffer());
+							#self.client_socket.close();
+						except:
+							print("Failed to write into socket...");
+						self.client_socket.close();
+						self.sm.unknown();
+						continue;
+					if utils.Utils.check_buffer_is_empty(p.get_username()):
+						print("Invalid credentials");
+						try:
+							nack = packet.NegativeAcknowledgementPacket();
+							self.client_socket.send(nack.get_buffer());
+							#self.client_socket.close();
+						except:
+							print("Failed to write into socket...");
+						self.client_socket.close();
+						self.sm.unknown();
+						continue;
+					if self.database.is_authentic(p.get_username(), p.get_password(), self.salt):
+						self.sm.authenticated();
+						try:
+							ack = packet.AcknowledgementPacket();
+							self.client_socket.send(ack.get_buffer());
+						except:
+							print("Failed to write data into socket...");
+							self.client_socket.close();
+							self.sm.unknown();
+					else:
+						try:
+							nack = packet.NegativeAcknowledgementPacket();
+							self.client_socket.send(nack.get_buffer());
+							#self.client_socket.close();
+							#self.sm.unknown();
+						except:
+							print("Failed to write into socket...");
+						self.client_socket.close();
+						self.sm.unknown();
+				except:
+					self.client_socket.close();
+					self.sm.unknown();
+					print("Could not parse data");
 			elif self.sm.is_authenticated():
 				self.client_ip = self.ip_pool.lease_ip();
 				configuration = packet.ConfigurationPacket();
