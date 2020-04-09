@@ -166,19 +166,28 @@ class Client():
 						self.sm.authenticated();
 					elif p.get_type() == packet.PACKET_TYPE_NACK:
 						print("Authentication failed...");
-						return;
+						self.sm.stalled();
+						self.secure_socket.close();
+						continue;
+				else:
+					self.sm.stalled();
+					self.secure_socket.close();
+					continue;
 			elif self.sm.is_authenticated():
 				buf = bytearray(self.secure_socket.recv(self.buffer_size));
 				if len(buf) > 0:
 					p = packet.ConfigurationPacket(buf);
 					if p.get_type() != packet.PACKET_TYPE_CONFIGURATION:
-						continue;
+						self.sm.stalled();
+						self.secure_socket.close();
 					print("Got configuration packet...")
 					if (utils.Utils.check_buffer_is_empty(p.get_ipv4_address()) or 
 						utils.Utils.check_buffer_is_empty(p.get_netmask()) or 
 						utils.Utils.check_buffer_is_empty(p.get_mtu())):
 						print("Invalid configuration");
-						break;
+						self.sm.stalled();
+						self.secure_socket.close();
+						continue;
 					self.tun = tun.Tun(config["TUN_NAME"],
 						bytearray(p.get_ipv4_address()).decode(encoding="ASCII"), 
 						bytearray(p.get_netmask()).decode(encoding="ASCII"), 
@@ -190,6 +199,10 @@ class Client():
 					self.nat_.enable_forwarding();
 					self.nat_.masquerade_tun_interface();
 					self.sm.configured();
+				else:
+					self.sm.stalled();
+					self.secure_socket.close();
+					continue;
 			elif self.sm.is_configured():
 				self.tun_thread = threading.Thread(target = self.tun_loop);
 				self.tls_thread = threading.Thread(target = self.tls_loop);
