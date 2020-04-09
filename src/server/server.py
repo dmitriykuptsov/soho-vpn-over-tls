@@ -183,6 +183,7 @@ class Server():
 					(sock, addr) = self.secure_sock.accept();
 					self.client_socket = sock;
 					self.client_address = addr;
+					print("Got connection from %s" % (self.client_address));
 					self.sm.connected();
 				except:
 					print("Could not open the socket...")
