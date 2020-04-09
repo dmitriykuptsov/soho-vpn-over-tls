@@ -5,6 +5,8 @@ After=network.target
 [Service]
 User=root
 Group=root
+Restart=on-failure
+RestartSec=3
 WorkingDirectory=/opt/vpn/
 ExecStart=python3 client/client.py
 
