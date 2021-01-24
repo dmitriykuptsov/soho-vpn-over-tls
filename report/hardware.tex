@@ -2,12 +2,15 @@
 \label{sec:hardware}
 
 To implement the VPN client and server we have used Python framework. The implementation
-consists roughly $1.2$K LOC and all functions are realized in userspace.
+consists roughly $1.2$K lines of code (LOC) and all functions are realized in userspace.
+We have exposed the implementation in our git repository~\ref{impl}, so that everyone can use it 
+without any fee.
 
 During the experiments, however, we have considered the following setup.
 For hardware we have selected a micro instance from DigitalOcean. The instance had 
 single core CPU, $25$ GB of data storage, $1$GB of random access memory, and was 
-located in Frankfurt, Germany. The client server was located in Tashkent, Uzbekistan. 
-For software we have selected Ubuntu 18.04. We have also used iperf tool 
-to measure the throughput, and we have used ping utility to measure the round trip times. 
+located in New York, USA. The VPN client was located in Tashkent, Uzbekistan and was
+spinning on Raspberry PI microcontroller. This way we mimiced the SOHO router. We have 
+also used iperf tool to measure the throughput, and we have used ping utility to 
+measure the round trip times. 
 

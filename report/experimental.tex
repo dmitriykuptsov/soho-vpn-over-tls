@@ -1,11 +1,12 @@
 \section{Experimental evaluation}
 \label{section:experiments}
 
-
-
 In Figure~\ref{fig:arch} we show the general view of the architecture, 
-in Figure~\ref{fig:topo} we demonstrate the topology of the SOHO network, and in 
+and in Figure~\ref{fig:topo} we demonstrate the topology of the SOHO network
+\eat{
+, and in 
 Figure~\ref{fig:prototype} we show working prototype.
+}
 
 \begin{figure}[!h]
         \includegraphics[width=0.5\textwidth]{graphics/architecture.png}
@@ -13,17 +14,20 @@ Figure~\ref{fig:prototype} we show working prototype.
         \label{fig:arch}
 \end{figure}
 
+
 \begin{figure}[!h]
         \includegraphics[width=0.5\textwidth]{graphics/topology.png}
         \caption{Topology of the SOHO network}
         \label{fig:topo}
 \end{figure}
 
+\eat{
 \begin{figure}[!h]
         \includegraphics[width=0.5\textwidth]{graphics/prototype.jpg}
         \caption{Working prototype}
         \label{fig:prototype}
 \end{figure}
+}
 
 We have made several experiments over the course of our work. The very first experiment was 
 related to sending ping messages towards the VPN TLS server and observing the differences in
@@ -36,8 +40,8 @@ normally (meaning, unencrypted and not encapsulated in TLS packets). To measure 
 we have used \texttt{iperf} tool.
 
 In Figure~\ref{fig:rtt} we show the distribution of round-trip times
-(RTT). Mean RTT for VPN connection was $137.1$ ms, and mean RTT for 
-plain ICMP was $66.42$ ms.
+(RTT). Mean RTT for VPN connection was $293.7$ ms, and mean RTT for 
+plain ICMP was $103.3$ ms.
 
 \begin{figure}[!h]
         \includegraphics[width=0.5\textwidth]{graphics/rtt.pdf}
@@ -47,10 +51,10 @@ plain ICMP was $66.42$ ms.
 
 In Figure~\ref{fig:iperf_distr} we show the distribution of the obtained throughput for both
 TLS protected tunnel and regular TCP connections. Mean throughput value for the VPN connection was 
-$913.1$ Kb/s, and mean throughput for plain TCP connection was $907.6$ Kb/s. The distributions 
-look identical. This are, of course, far better results than those, which we have seen 
-previously (we think that in this case the bottleneck is SOHO connection to the Internet
-and not our implementation of the software).
+$848.7$ Kb/s, and mean throughput for plain TCP connection was $554.8$ Kb/s. The distributions 
+look almost identical. Given these results, we think that in this case the bottleneck is SOHO
+connection to the Internet and not our implementation of the software. In other words, 
+our implementation of VPN tunnel is good enough for most small office settings.
 
 \begin{figure}[!h]
         \includegraphics[width=0.5\textwidth]{graphics/throughput.pdf}

@@ -1,9 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{hip}
-Host identity protocol.
-\newblock {\url{https://en.wikipedia.org/wiki/Host_Identity_Protocol}}.
-
 \bibitem{ike}
 Internet key exchange.
 \newblock {\url{https://en.wikipedia.org/wiki/Internet_Key_Exchange}}.
@@ -12,17 +8,27 @@ Internet key exchange.
 Ipsec.
 \newblock {\url{https://en.wikipedia.org/wiki/IPsec}}.
 
-\bibitem{openvpn}
-Openvpn.
-\newblock {\url{https://en.wikipedia.org/wiki/Secure_Shell}}.
-
-\bibitem{ssh}
-Secure shell.
-\newblock {\url{https://en.wikipedia.org/wiki/Secure_Shell}}.
-
 \bibitem{temperednetworks}
 Tempered networks simplifies secure network connectivity and microsegmentation.
 \newblock
   {\url{https://www.networkworld.com/article/3405853/tempered-networks-simplifies-secure-network-connectivity-and-microsegmentation.html}}.
+
+\bibitem{ssh}
+D.~J. Barrett, R.~E. Silverman, and R.~G. Byrnes.
+\newblock {\em SSH, the Secure Shell: The Definitive Guide}.
+\newblock O'Reilly Media, Inc., 2005.
+
+\bibitem{openvpn}
+M.~Feilner.
+\newblock {\em OpenVPN: Building and Integrating Virtual Private Networks:
+  Learn How to Build Secure VPNs Using This Powerful Open Source Application}.
+\newblock Packt Publishing, 2006.
+
+\bibitem{gurtov2008host}
+A.~Gurtov.
+\newblock {\em Host Identity Protocol (HIP): Towards the Secure Mobile
+  Internet}.
+\newblock Wiley Series on Communications Networking \& Distributed Systems.
+  Wiley, 2008.
 
 \end{thebibliography}

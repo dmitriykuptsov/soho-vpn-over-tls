@@ -5,7 +5,7 @@ In this short report we have made an attempt to describe how VPN solutions
 can be blocked by network operators. We argued that VPN traffic can still be
 hid from observers, by masking the tunnels using TLS protocol. 
 Our experiments suggest that this approach is handy when there is a need
-in secure channel, but network operators are eager to block VPN traffic.
+for secure channel, but network operators are eager to block VPN traffic.
 
 Although it is hard to make a business with this solution (on the long
 run, network operators can simply block all IP addresses which belong to VPN servers,
@@ -13,9 +13,10 @@ hosted by a business), we argue, however, that people can use this software
 and deploy it on their own cloud machines (they can keep the IP addresses 
 of the servers in secret). In this way there is a little chance
 that network operators can pinpoint the IP addresses of the servers: (i)
-the traffic will look like a normal HTTPS traffic; (ii) it is rather complex task
+the traffic will look like a normal HTTPS traffic (at the end
+the SSL tunnel is used using default HTTPS ports); (ii) it is rather complex task
 for network operators to scan through all IP addresses and find those, which 
 are used to send VPN traffic.
 
 We made the software available for download on a github page. We hope that 
-this project can make the Internet more liberal.
+this project can make the Internet more liberal in certain countries.
