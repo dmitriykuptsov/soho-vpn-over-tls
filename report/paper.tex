@@ -36,34 +36,38 @@
 \def\P{\mathop{\mathsf{P}}}
 \def\E{\mathop{\mathsf{E}}}
 
+\author{Dmitriy Kuptsov\\
+dmitriy.kuptsov@gmail.com}
+
 \begin{document}
 \sloppy
-\title{SOHO VPN box: Tunneling SOHO traffic over TLS VPN}
+\title{Bypassing deep packet inspection: Tunneling traffic over TLS VPN}
 \maketitle
 \begin{abstract}
 
-In some countries network operators employ deep packet inspection techniques 
-in order to block certain types of traffic. For example, Virtual Private Network 
-(VPN) traffic can be analyzed and blocked to prevent non-cooperative users from 
-sending encrypted packets over such networks. 
+In some countries, network operators employ deep packet inspection 
+techniques to block certain types of traffic. For example, Virtual 
+Private Network (VPN) traffic can be analyzed and blocked to prevent 
+users from sending encrypted packets over such networks. 
 
-By observing that HTTPS works all over the world (configured for extremely large
-number of web-servers) and cannot be easily analyzed (the payload is usually encrypted),
-we argue that in the same manner VPN tunneling can be organized: By masquerading 
-the VPN traffic with TLS or its older version - SSL, we can build a reliable and 
-secure network. Packets, which are sent over such tunnels, can cross multiple
+By observing that HTTPS works all over the world (configured for an 
+extremely large number of web-servers) and cannot be easily analyzed 
+(the payload is usually encrypted), we argue that in the same manner 
+VPN tunneling can be organized: By masquerading the VPN traffic with 
+TLS or its older version - SSL, we can build a reliable and secure 
+network. Packets, which are sent over such tunnels, can cross multiple 
 domains, which have various (strict and not so strict) security policies. 
-Despite that the SSH can be potentially used to build such network, 
-we have evidence that in certain countries connections
-made over such tunnels are analyzed statistically: If the network utilization by 
-such tunnels is high, bursts do exist, or connections are long living, then 
-underlying TCP connections are reset by network operators. 
+Despite that the SSH can be potentially used to build such network, we have 
+evidence that in certain countries connections made over such tunnels are 
+analyzed statistically: If the network utilization by such tunnels is high, 
+bursts do exist, or connections are long-living, then underlying TCP 
+connections are reset by network operators. 
 
-Thus, here we make an experimental effort in this direction: 
-First, we describe different VPN solutions, which exist in the Internet; 
-and, second, we describe our experimental effort with Python based software,
-which allows users to create VPN tunnel using TLS protocol and tunnel small office
-/home office (SOHO) traffic through such tunnels. 
+Thus, here we make an experimental effort in this direction: First, we 
+describe different VPN solutions, which exist on the Internet; and, 
+second, we describe our experimental effort with Python-based software 
+and Linux, which allows users to create VPN tunnel using TLS protocol 
+and tunnel small office/home office (SOHO) traffic through such tunnels.
 
 \end{abstract}
 \input intro.tex

@@ -1,10 +1,10 @@
 \section{Experimental evaluation}
 \label{section:experiments}
 
-In Figure~\ref{fig:arch} we show the general view of the architecture, 
-and in Figure~\ref{fig:topo} we demonstrate the topology of the SOHO network
+
 \eat{
-, and in 
+In Figure~\ref{fig:arch} we show the general view of the architecture.
+and in Figure~\ref{fig:topo} we demonstrate the topology of the SOHO network, and in 
 Figure~\ref{fig:prototype} we show working prototype.
 }
 
@@ -14,12 +14,13 @@ Figure~\ref{fig:prototype} we show working prototype.
         \label{fig:arch}
 \end{figure}
 
-
+\eat{
 \begin{figure}[!h]
         \includegraphics[width=0.5\textwidth]{graphics/topology.png}
         \caption{Topology of the SOHO network}
         \label{fig:topo}
 \end{figure}
+}
 
 \eat{
 \begin{figure}[!h]
@@ -29,11 +30,12 @@ Figure~\ref{fig:prototype} we show working prototype.
 \end{figure}
 }
 
+In Figure~\ref{fig:arch} we show the general view of the architecture. 
 We have made several experiments over the course of our work. The very first experiment was 
 related to sending ping messages towards the VPN TLS server and observing the differences in
 round trip times (basically, we have compared the round trip times between the setting in 
 which tunnel was present and the setting in which the tunnel did not exist). Next, we have
-sat down to measure the throughput between the local and remote machine. Basically, we have 
+sat down to measure the throughput between the local and remote machines. Basically, we have 
 performed $50$ measurements for a setting, in which the traffic was going inside the tunnel
 and the same number of measurements for the setting, in which the traffic was going 
 normally (meaning, unencrypted and not encapsulated in TLS packets). To measure throughput,
@@ -62,5 +64,16 @@ our implementation of VPN tunnel is good enough for most small office settings.
         \label{fig:iperf_distr}
 \end{figure}
 
+\eat{
 Finally, we have made a successful experiment in which the tunnel was used for a long period of time
 without interruption (the tunnel was used for several days).
+}
+
+\section{Future work}
+
+Despite that the tunnel was running for several hours without interruption and we have implemented 
+authentication layer, we still have seen several connection attempts, although unsuccessful, from the outside 
+world. For the future, we plan to hide the VPN server behind the web server, so that only the users 
+who know certain secret can access the VPN server. The idea is simple: when the user knocks by sending
+HTTP GET request to a secret page, the web server opens a port and redirects the traffic from
+the client to VPN server. Once the connection is established the server closes port. 

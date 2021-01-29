@@ -5,8 +5,12 @@ Internet key exchange.
 \newblock {\url{https://en.wikipedia.org/wiki/Internet_Key_Exchange}}.
 
 \bibitem{ipsec}
-Ipsec.
+{IPSec}.
 \newblock {\url{https://en.wikipedia.org/wiki/IPsec}}.
+
+\bibitem{impl}
+{SOHO VPN client and server}.
+\newblock {\url{https://github.com/dmitriykuptsov/soho-vpn-over-tls/}}.
 
 \bibitem{temperednetworks}
 Tempered networks simplifies secure network connectivity and microsegmentation.
