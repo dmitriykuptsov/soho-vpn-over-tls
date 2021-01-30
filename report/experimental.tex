@@ -39,7 +39,7 @@ sat down to measure the throughput between the local and remote machines. Basica
 performed $50$ measurements for a setting, in which the traffic was going inside the tunnel
 and the same number of measurements for the setting, in which the traffic was going 
 normally (meaning, unencrypted and not encapsulated in TLS packets). To measure throughput,
-we have used \texttt{iperf} tool.
+we have used \texttt{wget} tool to download Linux kernel file from the Internet.
 
 In Figure~\ref{fig:rtt} we show the distribution of round-trip times
 (RTT). Mean RTT for VPN connection was $293.7$ ms, and mean RTT for 
@@ -53,10 +53,7 @@ plain ICMP was $103.3$ ms.
 
 In Figure~\ref{fig:iperf_distr} we show the distribution of the obtained throughput for both
 TLS protected tunnel and regular TCP connections. Mean throughput value for the VPN connection was 
-$848.7$ Kb/s, and mean throughput for plain TCP connection was $554.8$ Kb/s. The distributions 
-look almost identical. Given these results, we think that in this case the bottleneck is SOHO
-connection to the Internet and not our implementation of the software. In other words, 
-our implementation of VPN tunnel is good enough for most small office settings.
+$608.7$ Kb/s, and mean throughput for plain TCP connection was $1890.4$ Kb/s. Given these results, we think that in this case the bottleneck is our implementation. However, we believe that our implementation of VPN tunnel is good enough for most small office settings.
 
 \begin{figure}[!h]
         \includegraphics[width=0.5\textwidth]{graphics/throughput.pdf}
