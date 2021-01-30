@@ -91,7 +91,8 @@ with the IP address of your SOHO box IP address and you should be all set.
 
 # Testing the VPN
 
-Now you should have VPN up and running. Lets make few tests.
+Now you should have VPN up and running.  First configure default route on your local
+machine so that it points to VPN box. Now, lets make few tests.
 
 Open your web browser, type ya.ru, for example, and 
 check your IP address - it should be the IP address of the VPN server if 
