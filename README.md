@@ -102,14 +102,14 @@ everything was configured correctly.
 
 We have noticed that sometimes curious Internet users and port scanners
 can check what is going on server. To solve the issue we can hide the 
-service behind regular HTTPS server. To open access we can use port knocking:
-For example, we can make an Nginx running on port 443, configure it 
+service behind regular HTTP server. To open access we can use port knocking:
+For example, we can make an Nginx running on port 80, configure it 
 with the following location:
 
 ```
 location ~ ^/secret/(.*) {
     proxy_set_header  X-Real-IP  $remote_addr;
-    proxy_pass http://127.0.0.1:8443/$1;
+    proxy_pass http://127.0.0.1:8080/$1;
   }
 ```
 
@@ -120,4 +120,4 @@ iptables -t nat -A PREROUTING -p tcp -s {clientIP} --dport 443 -j REDIRECT --to-
 ```
 
 Then a SOHO VPN kicks in and establishes a connection to our VPN service and IP table rule 
-is deleted. Otherwise the web server serves regular client some random pages.
+is deleted. Otherwise the web server serves regular client some random page.
