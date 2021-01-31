@@ -1,5 +1,7 @@
-\section{Hardware and software}
+\section{Hardware, software and architecture}
 \label{sec:hardware}
+
+In Figure~\ref{fig:arch} we show the general view of the architecture. 
 
 To implement the VPN client and server we have used the Python 
 framework and Ubuntu Linux distribution. The implementation consists 
@@ -90,8 +92,8 @@ $ python3 tools/gen.py <your secure password>
 Then, copy the generated hash string and add it to the 
 database.dat file in the \texttt{soho\_vpn\_over\_tls/server/} folder (you 
 might also want to change the default username in that 
-database file). You also need to change the password in
-\texttt{src/client/config.py}.
+database file). You also need to change the password (and probably 
+username) in \texttt{src/client/config.py}.
 
 Finally, generate private key and certificate for the 
 server:
