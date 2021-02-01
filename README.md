@@ -14,6 +14,7 @@ The VPN client box SHOULD not be an element on the path. INSTEAD,
 it SHOULD be a separate element inside the Intranet. Please, consider
 the following setup:
 
+```
 +----------------+
 | Network device |----+
 +----------------+  Plain 
@@ -27,7 +28,7 @@ the following setup:
                   +-----------------+
                   | VPN box(client) |
                   +-----------------+
-
+```
 
 
 First of all install python3, pip3 and needed libraries on both client and server machines.
