@@ -87,7 +87,12 @@ $ sudo python3 client/client.py
 # Client configuration
 
 On client machine you need to modify the default gateway: Configure the default gateway
-with the IP address of your SOHO box IP address and you should be all set.
+with the IP address of your SOHO box IP address and you should be all set:
+
+```
+$ sudo ip route del default
+$ sudo ip route add default via <IP address of SOHO TLS VPN box>
+```
 
 # Testing the VPN
 
