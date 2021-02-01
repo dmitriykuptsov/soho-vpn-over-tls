@@ -16,7 +16,8 @@ the following setup:
 
 +----------------+
 | Network device |----+
-+----------------+    |
++----------------+  Plain 
+                   traffic
                       |         SOHO
 +----------------+    |       +--------+               +----------+
 | Network device |--+ |    +->| Router |---->Internet->|VPN server|
