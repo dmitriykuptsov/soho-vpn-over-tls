@@ -121,7 +121,7 @@ location ~ ^/secret/(.*) {
 When the user knocks, the web application opens firewall access to the clinet:
 
 ```
-iptables -t nat -A PREROUTING -p tcp -s {clientIP} --dport 443 -j REDIRECT --to-port 4443
+iptables -t nat -A PREROUTING -p tcp -s {clientIP} --dport 443 -j REDIRECT --to-port 9000
 ```
 
 Then a SOHO VPN kicks in and establishes a connection to our VPN service and IP table rule 
