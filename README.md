@@ -121,8 +121,9 @@ location ~ ^/secret/(.*) {
 When the user knocks, the web application opens firewall access to the clinet:
 
 ```
-iptables -t nat -A PREROUTING -p tcp -s {clientIP} --dport 443 -j REDIRECT --to-port 9000
+iptables -t nat -A PREROUTING -p tcp -s <clients IP> --dport 443 -j REDIRECT --to-port 9000
 ```
 
-Then a SOHO VPN kicks in and establishes a connection to our VPN service and IP table rule 
-is deleted. Otherwise the web server serves regular client some random page.
+Then a SOHO VPN client kicks in and establishes a connection to our VPN service and IP table rule 
+is deleted. Otherwise the web server serves regular client some random page. This way operators 
+will not be able to distinguish VPN server from normal Web server.
