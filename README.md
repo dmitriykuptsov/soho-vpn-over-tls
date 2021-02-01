@@ -9,7 +9,25 @@ should be deployed on a SOHO VPN box.
 
 # Installation
 
-We assume that both server and client are running Ubuntu 18.04 operating system.
+We assume that both server and client are running Ubuntu 18.04 operating system. NOTE!
+The VPN client box SHOULD not be an element on the path. INSTEAD,
+it SHOULD be a separate element inside the Intranet. Please, consider
+the following setup:
+
++----------------+
+| Network device |----+
++----------------+    |
+                      |         SOHO
++----------------+    |       +--------+               +----------+
+| Network device |--+ |    +->| Router |---->Internet->|VPN server|
++----------------+  | |    |  +--------+               +----------+
+                    | |   TLS
+                    v v    |
+                  +-----------------+
+                  | VPN box(client) |
+                  +-----------------+
+
+
 
 First of all install python3, pip3 and needed libraries on both client and server machines.
 To install the python3, run the following command on both server and client:
