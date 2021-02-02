@@ -9,7 +9,7 @@ should be deployed on a SOHO VPN box.
 
 # Installation
 
-We assume that both server and client are running Ubuntu 18.04 operating system. NOTE!
+We assume that both server and client are running Debian like operating system. NOTE!
 The VPN client box SHOULD not be an element on the path. INSTEAD,
 it SHOULD be a separate element inside the Intranet. Please, consider
 the following setup:
