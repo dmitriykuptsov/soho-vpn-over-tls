@@ -74,6 +74,11 @@ On SOHO box also go to directory vpn_over_tls/src/client and modify the IP addre
 file (currently it is 94.237.31.77, but you have to change it to an IP address of your own server (on server machine you 
 can check the IP address either from administrative page, like it is offered in UpCloud or DigitalOcean, or by issuing ifconfig command))
 
+Thanks to Joachim Bauch it is now possible to perform autoconfiguration more efficiently. Thus, SERVER_IP option is looked up from
+the SERVER_HOSTNAME option (if hostname is provided), also DEFAULT_GW is looked from /proc/ filesystem, and finally CA_CERTIFICATE is no
+optional if the certificate is trusted (not self-generated).
+
+
 One, probably, needs to also modify the IP address of default gateway. Currently it is set to 10.0.2.2, but it needs to be 
 the default route of your network.
 
