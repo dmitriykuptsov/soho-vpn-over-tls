@@ -59,19 +59,40 @@ import atexit
 # Timing
 from time import sleep
 
+def get_default_gateway():
+    """Read the default gateway directly from /proc."""
+    with open("/proc/net/route") as fh:
+        for line in fh:
+            fields = line.strip().split()
+            if fields[1] != '00000000' or not int(fields[3], 16) & 2:
+                # If not default route or not RTF_GATEWAY, skip it
+                continue
+
+            return socket.inet_ntoa(struct.pack("<L", int(fields[2], 16)))
+
 class Client():
 	def __init__(self, config):
 		"""
 		Secure socket and state machine initialization
 		"""
 		self.ctx = ssl.create_default_context();
-		self.ctx.load_verify_locations(config["CA_CERTIFICATE"]);
+		if config.get("CA_CERTIFICATE"):
+			self.ctx.load_verify_locations(config["CA_CERTIFICATE"]);
+		hostname = config["SERVER_HOSTNAME"]
+		if not config.get("SERVER_IP"):
+			config["SERVER_IP"] = socket.gethostbyname(hostname)
+			print("Using %s as server IP ..." % config["SERVER_IP"])
 		self.sock = socket.create_connection((config["SERVER_IP"], config["SERVER_PORT"]));
 		self.ctx.check_hostname = True;
-		self.secure_socket = self.ctx.wrap_socket(self.sock, server_hostname=config["SERVER_HOSTNAME"], server_side=False);
+		self.secure_socket = self.ctx.wrap_socket(self.sock, server_hostname=hostname, server_side=False);
 		self.sm = state.StateMachine();
 		self.sm.connected();
 		self.buffer_size = config["BUFFER_SIZE"];
+		if not config.get("DEFAULT_GW"):
+			config["DEFAULT_GW"] = get_default_gateway()
+			if not config["DEFAULT_GW"]:
+				raise Exception('Could not determine default gateway, please configure manually')
+			print("Using %s as default gateway ..." % config["DEFAULT_GW"])
 		self.default_gw = config["DEFAULT_GW"];
 		self.dns_server = config["DNS_SERVER"];
 		self.server_ip = config["SERVER_IP"];
@@ -206,16 +227,16 @@ class Client():
 						self.sm.stalled();
 						self.secure_socket.close();
 					print("Got configuration packet...")
-					if (utils.Utils.check_buffer_is_empty(p.get_ipv4_address()) or 
-						utils.Utils.check_buffer_is_empty(p.get_netmask()) or 
+					if (utils.Utils.check_buffer_is_empty(p.get_ipv4_address()) or
+						utils.Utils.check_buffer_is_empty(p.get_netmask()) or
 						utils.Utils.check_buffer_is_empty(p.get_mtu())):
 						print("Invalid configuration");
 						self.sm.stalled();
 						self.secure_socket.close();
 						continue;
 					self.tun = tun.Tun(config["TUN_NAME"],
-						bytearray(p.get_ipv4_address()).decode(encoding="ASCII"), 
-						bytearray(p.get_netmask()).decode(encoding="ASCII"), 
+						bytearray(p.get_ipv4_address()).decode(encoding="ASCII"),
+						bytearray(p.get_netmask()).decode(encoding="ASCII"),
 						struct.unpack("I", bytearray(p.get_mtu()))[0]);
 					self.tun_mtu = struct.unpack("I", bytearray(p.get_mtu()))[0];
 					self.routing_.configure_default_route(bytearray(p.get_ipv4_address()).decode(encoding="ASCII"));
