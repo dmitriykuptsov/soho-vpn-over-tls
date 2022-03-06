@@ -101,6 +101,9 @@ class Client():
 				print("Using %s as server IP ..." % config["SERVER_IP"])
 		else:
 			hostname = config["PROXY_TARGET_HOST"]
+			if not config.get("SERVER_IP"):
+				print("Missing proxy IP address")
+				return;
 		self.sock = socket.create_connection((config["SERVER_IP"], config["SERVER_PORT"]));
 		if config["USE_PROXY"]:
 			if not send_authenticated_proxy_connect(self.sock, config["PROXY_TARGET_HOST"], config["PROXY_TARGET_PORT"], config["PROXY_PASSWORD"]):
