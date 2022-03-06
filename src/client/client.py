@@ -94,10 +94,13 @@ class Client():
 		self.ctx = ssl.create_default_context();
 		if config.get("CA_CERTIFICATE"):
 			self.ctx.load_verify_locations(config["CA_CERTIFICATE"]);
-		hostname = config["SERVER_HOSTNAME"]
-		if not config.get("SERVER_IP"):
-			config["SERVER_IP"] = socket.gethostbyname(hostname)
-			print("Using %s as server IP ..." % config["SERVER_IP"])
+		if not config["USE_PROXY"]:
+			hostname = config["SERVER_HOSTNAME"]
+			if not config.get("SERVER_IP"):
+				config["SERVER_IP"] = socket.gethostbyname(hostname)
+				print("Using %s as server IP ..." % config["SERVER_IP"])
+		else:
+			hostname = config["PROXY_TARGET_HOST"]
 		self.sock = socket.create_connection((config["SERVER_IP"], config["SERVER_PORT"]));
 		if config["USE_PROXY"]:
 			if not send_authenticated_proxy_connect(self.sock, config["PROXY_TARGET_HOST"], config["PROXY_TARGET_PORT"], config["PROXY_PASSWORD"]):
