@@ -56,6 +56,9 @@ import config
 # Exit hook
 import atexit
 
+# Base64 routines
+import base64
+
 # Timing
 from time import sleep
 
@@ -70,6 +73,19 @@ def get_default_gateway():
 
             return socket.inet_ntoa(struct.pack("<L", int(fields[2], 16)))
 
+def send_authenticated_proxy_connect(socket, host, port, password):
+	"""Send connect to proxy and read response"""
+	password_bytes = password.encode("ascii")
+	base64_bytes = base64.b64encode(password_bytes)
+	http_payload = """CONNECT %s:%s HTTP/1.1\r\nHost: %s:%s\r\nProxy-Authorization: Basic %s\r\n""" % (host, port, host, port, base64_bytes)
+	socket.send(http_payload.encode());
+	http_repsonse_bytes = socket.recv(4096);
+	http_repsonse = http_repsonse_bytes.decode("ascii");
+	try:
+		return http_repsonse.index("HTTP/1.1 200") >= 0
+	except:
+		return False
+
 class Client():
 	def __init__(self, config):
 		"""
@@ -83,6 +99,9 @@ class Client():
 			config["SERVER_IP"] = socket.gethostbyname(hostname)
 			print("Using %s as server IP ..." % config["SERVER_IP"])
 		self.sock = socket.create_connection((config["SERVER_IP"], config["SERVER_PORT"]));
+		if config["USE_PROXY"]:
+			if not send_authenticated_proxy_connect(self.sock, config["PROXY_TARGET_HOST"], config["PROXY_TARGET_PORT"], config["PROXY_PASSWORD"]):
+				return;
 		self.ctx.check_hostname = True;
 		self.secure_socket = self.ctx.wrap_socket(self.sock, server_hostname=hostname, server_side=False);
 		self.sm = state.StateMachine();
