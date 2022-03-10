@@ -1,6 +1,6 @@
 config = {
-	"SERVER_IP": "94.237.31.77", # Optional, if SERVER_HOSTNAME is registered in the DNS
-	"SERVER_PORT": 443,
+	"SERVER_IP": "94.237.31.77", # Optional, if SERVER_HOSTNAME is registered in the DNS, this should be the IP address of proxy server if it is used
+	"SERVER_PORT": 443, # This should be the port number of a proxy server if it is used
 	"USERNAME": "dmitriy",
 	"PASSWORD": "test",
 	"TUN_NAME": "tun1",
