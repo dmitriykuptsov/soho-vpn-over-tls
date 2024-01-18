@@ -1,0 +1,15 @@
+[Unit]
+Description=VPN over TLS
+After=network.target
+
+[Service]
+User=root
+Group=root
+Restart=always
+RestartSec=3
+WorkingDirectory=/opt/vpn/
+ExecStart=/usr/bin/python3 server/server.py
+
+[Install]
+WantedBy=multi-user.target
+
