@@ -61,7 +61,7 @@ your hard drive and checkout the project's repository (we need to do so on both 
 usual):
 
 ```
-$ git clone https://github.com/dmitriykuptsov/soho_vpn_over_tls.git
+$ git clone https://github.com/dmitriykuptsov/soho-vpn-over-tls.git
 ```
 
 # Configuration
