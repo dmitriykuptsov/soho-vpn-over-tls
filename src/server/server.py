@@ -306,6 +306,7 @@ class Server():
 	def exit_handler(self):
 		self.nat_.disable_forwarding();
 		self.nat_.disable_masquerade_tun_interface();
+		self.sm.unknown()
 
 # Start the server
 from config import config
