@@ -56,7 +56,7 @@ import config
 from hashlib import sha256
 
 # Timing 
-from time import sleep
+from time import sleep, time
 
 # Exit hook
 import atexit
@@ -95,6 +95,8 @@ class Server():
 		self.tun_mtu = config["TUN_MTU"];
 		self.buffer_size = config["BUFFER_SIZE"];
 		self.salt = config["SALT"];
+
+		self.data_timeout = time() + config["DATA_TIMEOUT"];
 
 		"""
 		Create secure socket and bind it to address and port
@@ -149,6 +151,7 @@ class Server():
 	"""
 	def read_from_secure_socket(self):
 		buf = self.client_socket.recv(self.buffer_size);
+		self.data_timeout = time() + config["DATA_TIMEOUT"];
 		if len(buf) == 0:
 			raise Exception("Socket was closed");
 		self.secure_socket_buffer += buf;
@@ -300,6 +303,10 @@ class Server():
 				self.tun_thread.start();
 				self.tls_thread.start();
 				self.sm.running();
+				if self.data_timeout <= time():
+					self.sm.stalled()
+					self.client_socket.close()
+					print("Connection was stalled....")
 			elif self.sm.is_running():
 				sleep(10);
 

@@ -8,5 +8,6 @@ config = {
 	"BUFFER_SIZE": 1500,
 	"CERTIFICATE_CHAIN": "./certificates/certchain.pem",
 	"PRIVATE_KEY": "./certificates/private.key",
-	"SALT": "WH!{*ewP]x}0RHoP9k|nu_L(R9jm*/:i"
+	"SALT": "WH!{*ewP]x}0RHoP9k|nu_L(R9jm*/:i",
+    "DATA_TIMEOUT": 10*60*1000
 }

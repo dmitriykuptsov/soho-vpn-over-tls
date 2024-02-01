@@ -57,7 +57,7 @@ import config
 import atexit
 
 # Timing
-from time import sleep
+from time import sleep, time
 
 def get_default_gateway():
     """Read the default gateway directly from /proc."""
@@ -87,6 +87,7 @@ class Client():
 		self.secure_socket = self.ctx.wrap_socket(self.sock, server_hostname=hostname, server_side=False);
 		self.sm = state.StateMachine();
 		self.sm.connected();
+		self.data_timeout = time() + config["DATA_TIMEOUT"];
 		self.buffer_size = config["BUFFER_SIZE"];
 		if not config.get("DEFAULT_GW"):
 			config["DEFAULT_GW"] = get_default_gateway()
@@ -129,6 +130,7 @@ class Client():
 		userdata.set_payload(payload);
 		#print("Total packet length %d" % (len(userdata.get_buffer())));
 		self.secure_socket.send(userdata.get_buffer());
+		self.data_timeout = time() + config["DATA_TIMEOUT"];
 
 	"""
 	Reads data from secure socket
@@ -137,6 +139,7 @@ class Client():
 		buf = bytearray(self.secure_socket.recv(self.buffer_size));
 		if len(buf) == 0:
 			raise Exception("Socket was closed");
+		self.data_timeout = time() + config["DATA_TIMEOUT"];
 		self.secure_socket_buffer += buf;
 		if len(self.secure_socket_buffer) <= packet.Packet.get_header_length():
 			return None;
@@ -258,6 +261,9 @@ class Client():
 				self.tls_thread.start();
 				self.sm.running();
 			elif self.sm.is_running():
+				if self.data_timeout < time():
+					self.sm.stalled()
+					self.secure_socket.close()
 				sleep(10);
 			elif self.sm.is_stalled():
 				self.routing_.restore_default_route(self.default_gw);
