@@ -303,11 +303,11 @@ class Server():
 				self.tun_thread.start();
 				self.tls_thread.start();
 				self.sm.running();
+			elif self.sm.is_running():
 				if self.data_timeout <= time():
 					self.sm.stalled()
 					self.client_socket.close()
 					print("Connection was stalled....")
-			elif self.sm.is_running():
 				sleep(10);
 
 	def exit_handler(self):
