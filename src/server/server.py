@@ -306,7 +306,7 @@ class Server():
 				self.sm.running();
 			elif self.sm.is_running():
 				if self.data_timeout <= time():
-					self.sm.stalled()
+					self.sm.unknown()
 					self.client_socket.close()
 					print("Connection was stalled....")
 				sleep(10);
