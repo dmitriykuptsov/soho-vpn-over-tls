@@ -83,7 +83,7 @@ class Client():
 			config["SERVER_IP"] = socket.gethostbyname(hostname)
 			print("Using %s as server IP ..." % config["SERVER_IP"])
 		self.sock = socket.create_connection((config["SERVER_IP"], config["SERVER_PORT"]));
-		self.sock.settimeout(30)
+		#self.sock.settimeout(30)
 		self.ctx.check_hostname = True;
 		self.secure_socket = self.ctx.wrap_socket(self.sock, server_hostname=hostname, server_side=False);
 		self.sm = state.StateMachine();

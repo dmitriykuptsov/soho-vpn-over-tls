@@ -209,7 +209,7 @@ class Server():
 			if self.sm.is_unknown():
 				try:
 					(sock, addr) = self.secure_sock.accept();
-					sock.settimeout(30)
+					#sock.settimeout(30)
 					self.client_socket = sock;
 					self.client_address = addr;
 					print("Got connection from %s" % (self.client_address[0]));
