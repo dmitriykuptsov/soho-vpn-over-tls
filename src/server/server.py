@@ -299,10 +299,13 @@ class Server():
 			elif self.sm.is_configured():
 				self.tun_thread = threading.Thread(target = self.tun_loop);
 				self.tls_thread = threading.Thread(target = self.tls_loop);
+				self.maintenance_thread = threading.Thread(target = self.maintenance_loop)
 				self.tun_thread.daemon = True;
 				self.tls_thread.daemon = True;
+				self.maintenance_thread.daemon = True;
 				self.tun_thread.start();
 				self.tls_thread.start();
+				self.maintenance_thread.start();
 				self.sm.running();
 			elif self.sm.is_running():
 				if self.data_timeout <= time():
@@ -314,6 +317,22 @@ class Server():
 	def exit_handler(self):
 		self.nat_.disable_forwarding();
 		self.nat_.disable_masquerade_tun_interface();
+
+	def maintenance_loop(self):
+		timeout = time() + 30 * 1000
+		while True:
+			if self.sm.is_connected():
+				if time() > timeout:
+					#timeout = time() + 30 * 1000
+					self.client_socket.close()
+					self.sm.unknown()
+					print("Connection timed out")
+					break;
+			elif self.sm.is_unknown():
+				timeout = time() + 30 * 1000
+			sleep(1)
+			
+				
 
 # Start the server
 from config import config
