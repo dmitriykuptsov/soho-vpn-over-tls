@@ -186,6 +186,7 @@ class Server():
 				print("Connection was closed");
 				self.sm.unknown();
 				self.ip_pool.release_ip(self.client_ip);
+				self.client_socket.close();
 				#self.tun_thread.join();
 				break;
 
@@ -200,6 +201,7 @@ class Server():
 				print("Connection was closed")
 				self.sm.unknown();
 				self.ip_pool.release_ip(self.client_ip);
+				self.client_socket.close();
 				break;
 	"""
 	Main loop
@@ -283,6 +285,7 @@ class Server():
 					self.sm.unknown();
 					print("Could not parse data");
 			elif self.sm.is_authenticated():
+				print("Sending configuration data to the VPN client")
 				self.client_ip = self.ip_pool.lease_ip();
 				configuration = packet.ConfigurationPacket();
 				configuration.set_netmask(list(bytearray(self.tun_netmask, encoding="ASCII")));
