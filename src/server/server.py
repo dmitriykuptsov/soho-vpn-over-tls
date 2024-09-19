@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 __author__ = "Dmitriy Kuptsov"
-__copyright__ = "Copyright 2020, stangebit"
+__copyright__ = "Copyright 2020, strangebit"
 __license__ = "GPL"
 __version__ = "0.0.1a"
 __maintainer__ = "Dmitriy Kuptsov"
@@ -107,6 +107,7 @@ class Server():
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0);
 		self.sock.bind((self.hostname, self.port));
 		self.sock.listen(5);
+		self.sock.settimeout(10);
 		self.secure_sock = self.ctx.wrap_socket(self.sock, server_side=True);
 
 		"""
@@ -326,13 +327,13 @@ class Server():
 		while True:
 			if self.sm.is_connected():
 				if time() > timeout:
-					#timeout = time() + 30 * 1000
 					self.client_socket.close()
 					self.sm.unknown()
 					print("Connection timed out")
 					break;
 			elif self.sm.is_unknown():
 				timeout = time() + 30 * 1000
+			print("Running maintenance loop")
 			sleep(1)
 			
 				
