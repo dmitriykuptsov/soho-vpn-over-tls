@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 __author__ = "Dmitriy Kuptsov"
-__copyright__ = "Copyright 2020, strangebit"
+__copyright__ = "Copyright 2020, stangebit"
 __license__ = "GPL"
 __version__ = "0.0.1a"
 __maintainer__ = "Dmitriy Kuptsov"
@@ -108,6 +108,7 @@ class Server():
 		self.sock.bind((self.hostname, self.port));
 		self.sock.listen(5);
 		self.sock.settimeout(10);
+		self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
 		self.secure_sock = self.ctx.wrap_socket(self.sock, server_side=True);
 
 		"""
@@ -145,6 +146,7 @@ class Server():
 		try:
 			self.client_socket.send(userdata.get_buffer());
 		except:
+			os.system("ss --tcp state CLOSE-WAIT --kill")
 			raise Exception("Socket was closed");
 
 	"""
@@ -184,10 +186,11 @@ class Server():
 			try:
 				self.write_to_tun(self.read_from_secure_socket());
 			except:
-				print("Connection was closed");
+				print("Connection was closed TUN loop");
 				self.sm.unknown();
 				self.ip_pool.release_ip(self.client_ip);
 				self.client_socket.close();
+				os.system("ss --tcp state CLOSE-WAIT --kill")
 				#self.tun_thread.join();
 				break;
 
@@ -199,10 +202,11 @@ class Server():
 			try:
 				self.write_to_secure_socket(self.read_from_tun());
 			except:
-				print("Connection was closed")
+				print("Connection was closed TLS loop")
 				self.sm.unknown();
 				self.ip_pool.release_ip(self.client_ip);
 				self.client_socket.close();
+				os.system("ss --tcp state CLOSE-WAIT --kill")
 				break;
 	"""
 	Main loop
@@ -279,6 +283,7 @@ class Server():
 							#self.sm.unknown();
 						except:
 							print("Failed to write into socket...");
+						print("Invalid credentials were used");
 						self.client_socket.close();
 						self.sm.unknown();
 				except:
@@ -315,7 +320,7 @@ class Server():
 				if self.data_timeout <= time():
 					self.sm.unknown()
 					self.client_socket.close()
-					print("Connection was stalled....")
+					print("Connection was stalled in running state....")
 				sleep(10);
 
 	def exit_handler(self):
@@ -327,16 +332,14 @@ class Server():
 		while True:
 			if self.sm.is_connected():
 				if time() > timeout:
+					#timeout = time() + 30 * 1000
 					self.client_socket.close()
 					self.sm.unknown()
 					print("Connection timed out")
 					break;
 			elif self.sm.is_unknown():
 				timeout = time() + 30 * 1000
-			print("Running maintenance loop")
 			sleep(1)
-			
-				
 
 # Start the server
 from config import config
