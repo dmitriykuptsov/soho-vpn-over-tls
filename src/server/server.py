@@ -321,6 +321,7 @@ class Server():
 					self.sm.unknown()
 					self.client_socket.close()
 					print("Connection was stalled in running state....")
+					os.system("ss --tcp state CLOSE-WAIT --kill")
 				sleep(10);
 
 	def exit_handler(self):
