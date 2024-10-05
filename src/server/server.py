@@ -336,6 +336,7 @@ class Server():
 					self.client_socket.close()
 					self.sm.unknown()
 					print("Connection timed out")
+					os.system("ss --tcp state CLOSE-WAIT --kill")
 					break;
 			elif self.sm.is_unknown():
 				timeout = time() + 30 * 1000
