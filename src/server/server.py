@@ -235,6 +235,7 @@ class Server():
 					print("Failed to read from socket...");
 					self.client_socket.close();
 					self.sm.unknown();
+					os.system("ss --tcp state CLOSE-WAIT --kill")
 					continue;
 				
 				print("Received authentication packet...");
@@ -286,6 +287,7 @@ class Server():
 						print("Invalid credentials were used");
 						self.client_socket.close();
 						self.sm.unknown();
+						os.system("ss --tcp state CLOSE-WAIT --kill")
 				except:
 					self.client_socket.close();
 					self.sm.unknown();
@@ -305,6 +307,7 @@ class Server():
 					self.sm.unknown();
 					self.client_socket.close();
 					print("Failed to write into socket...");
+					os.system("ss --tcp state CLOSE-WAIT --kill")
 			elif self.sm.is_configured():
 				self.tun_thread = threading.Thread(target = self.tun_loop);
 				self.tls_thread = threading.Thread(target = self.tls_loop);
