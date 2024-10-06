@@ -73,11 +73,6 @@ class Server():
 		self.database = database;
 
 		"""
-		Initialize state machine
-		"""
-		self.sm = state.StateMachine();
-
-		"""
 		Initialize IP address pool
 		"""
 
@@ -95,8 +90,6 @@ class Server():
 		self.tun_mtu = config["TUN_MTU"];
 		self.buffer_size = config["BUFFER_SIZE"];
 		self.salt = config["SALT"];
-
-		self.data_timeout = time() + config["DATA_TIMEOUT"];
 
 		"""
 		Create secure socket and bind it to address and port
@@ -125,7 +118,60 @@ class Server():
 		"""
 		Initialize secure socket buffer
 		"""
+		#self.secure_socket_buffer = [];
+
+	"""
+	Main loop
+	"""
+	def loop(self):
+		while True:
+			try:
+				(sock, addr) = self.secure_sock.accept();
+				#sock.settimeout(30)
+				self.client_socket = sock;
+				self.client_address = addr;
+				print("Got connection from %s" % (self.client_address[0]));
+				conn = Connection(sock, self.database, self.ip_pool, self.tun)
+				self.client = threading.Thread(target = conn.loop);
+				self.client.start()
+				
+			except Exception as e:
+				print(e)
+				print("Could not open the socket...")
+				sleep(1);
+				continue;
+	
+	def exit_handler(self):
+		self.nat_.disable_forwarding();
+		self.nat_.disable_masquerade_tun_interface();
+
+class Connection():
+
+	def __init__(self, socket, database, ipool, tun):
 		self.secure_socket_buffer = [];
+		self.client_socket = socket
+		self.database = database
+		self.ip_pool = ipool
+
+		self.hostname = config["LISTEN_ADDRESS"];
+		self.port = config["LISTEN_PORT"];
+		self.tun_address = config["TUN_ADDRESS"];
+		self.tun_name = config["TUN_NAME"];
+		self.tun_netmask = config["TUN_NETMASK"];
+		self.tun_mtu = config["TUN_MTU"];
+		self.buffer_size = config["BUFFER_SIZE"];
+		self.salt = config["SALT"];
+
+		self.data_timeout = time() + config["DATA_TIMEOUT"];
+
+		self.tun = tun
+
+		"""
+		Initialize state machine
+		"""
+		self.sm = state.StateMachine();
+	
+		self.sm.connected();
 
 	"""
 	Writes data to TUN interface
@@ -322,10 +368,6 @@ class Server():
 					self.client_socket.close()
 					print("Connection was stalled in running state....")
 				sleep(10);
-
-	def exit_handler(self):
-		self.nat_.disable_forwarding();
-		self.nat_.disable_masquerade_tun_interface();
 
 	def maintenance_loop(self):
 		timeout = time() + 30 * 1000
