@@ -106,7 +106,7 @@ class Server():
 		self.ctx.load_cert_chain(config["CERTIFICATE_CHAIN"], config["PRIVATE_KEY"]);
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0);
 		self.sock.bind((self.hostname, self.port));
-		self.sock.listen(5);
+		self.sock.listen(0);
 		self.sock.settimeout(10);
 		self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
 		self.secure_sock = self.ctx.wrap_socket(self.sock, server_side=True);
