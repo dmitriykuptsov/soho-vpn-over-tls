@@ -260,17 +260,9 @@ class Connection():
 	def loop(self):
 		while True:
 			if self.sm.is_unknown():
-				try:
-					(sock, addr) = self.secure_sock.accept();
-					#sock.settimeout(30)
-					self.client_socket = sock;
-					self.client_address = addr;
-					print("Got connection from %s" % (self.client_address[0]));
-					self.sm.connected();
-				except:
-					print("Could not open the socket...")
-					sleep(1);
-					continue;
+				self.sm.unknown();
+				self.ip_pool.release_ip(self.client_ip);
+				break;
 			elif self.sm.is_connected():
 				buf = None
 				try:
