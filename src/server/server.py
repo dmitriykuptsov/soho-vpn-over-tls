@@ -99,7 +99,7 @@ class Server():
 		self.ctx.load_cert_chain(config["CERTIFICATE_CHAIN"], config["PRIVATE_KEY"]);
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0);
 		self.sock.bind((self.hostname, self.port));
-		self.sock.listen(5);
+		self.sock.listen(0);
 		self.sock.settimeout(10);
 		self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
 		self.secure_sock = self.ctx.wrap_socket(self.sock, server_side=True);
@@ -281,6 +281,7 @@ class Connection():
 					print("Failed to read from socket...");
 					self.client_socket.close();
 					self.sm.unknown();
+					os.system("ss --tcp state CLOSE-WAIT --kill")
 					continue;
 				
 				print("Received authentication packet...");
@@ -332,6 +333,7 @@ class Connection():
 						print("Invalid credentials were used");
 						self.client_socket.close();
 						self.sm.unknown();
+						os.system("ss --tcp state CLOSE-WAIT --kill")
 				except:
 					self.client_socket.close();
 					self.sm.unknown();
@@ -351,6 +353,7 @@ class Connection():
 					self.sm.unknown();
 					self.client_socket.close();
 					print("Failed to write into socket...");
+					os.system("ss --tcp state CLOSE-WAIT --kill")
 			elif self.sm.is_configured():
 				self.tun_thread = threading.Thread(target = self.tun_loop);
 				self.tls_thread = threading.Thread(target = self.tls_loop);
@@ -367,6 +370,7 @@ class Connection():
 					self.sm.unknown()
 					self.client_socket.close()
 					print("Connection was stalled in running state....")
+					os.system("ss --tcp state CLOSE-WAIT --kill")
 				sleep(10);
 
 	def maintenance_loop(self):
@@ -378,6 +382,7 @@ class Connection():
 					self.client_socket.close()
 					self.sm.unknown()
 					print("Connection timed out")
+					os.system("ss --tcp state CLOSE-WAIT --kill")
 					break;
 			elif self.sm.is_unknown():
 				timeout = time() + 30 * 1000
