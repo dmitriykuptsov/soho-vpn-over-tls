@@ -260,7 +260,6 @@ class Connection():
 	def loop(self):
 		while True:
 			if self.sm.is_unknown():
-				self.sm.unknown();
 				self.ip_pool.release_ip(self.client_ip);
 				break;
 			elif self.sm.is_connected():
