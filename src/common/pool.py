@@ -16,6 +16,7 @@ class IpPool():
 		self.pool = [gateway_ip];
 
 	def lease_ip(self):
+		self.counter = 1;
 		next_ip = self.network_part + self.counter;
 		while self.counter <= self.max_hosts:
 			self.counter += 1;
