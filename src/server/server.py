@@ -260,6 +260,7 @@ class Connection():
 	def loop(self):
 		while True:
 			if self.sm.is_unknown():
+				self.sm.unknown();
 				self.ip_pool.release_ip(self.client_ip);
 				break;
 			elif self.sm.is_connected():
@@ -272,6 +273,7 @@ class Connection():
 					print("Failed to read from socket...");
 					self.client_socket.close();
 					self.sm.unknown();
+					self.ip_pool.release_ip(self.client_ip);
 					os.system("ss --tcp state CLOSE-WAIT --kill")
 					continue;
 				
@@ -281,6 +283,7 @@ class Connection():
 					if p.get_type() != packet.PACKET_TYPE_AUTHENTICATION:
 						self.client_socket.close();
 						self.sm.unknown();
+						self.ip_pool.release_ip(self.client_ip);
 						continue;
 					if utils.Utils.check_buffer_is_empty(p.get_password()):
 						print("Invalid credentials");
@@ -292,6 +295,7 @@ class Connection():
 							print("Failed to write into socket...");
 						self.client_socket.close();
 						self.sm.unknown();
+						self.ip_pool.release_ip(self.client_ip);
 						continue;
 					if utils.Utils.check_buffer_is_empty(p.get_username()):
 						print("Invalid credentials");
@@ -303,6 +307,7 @@ class Connection():
 							print("Failed to write into socket...");
 						self.client_socket.close();
 						self.sm.unknown();
+						self.ip_pool.release_ip(self.client_ip);
 						continue;
 					if self.database.is_authentic(p.get_username(), p.get_password(), self.salt):
 						self.sm.authenticated();
@@ -313,6 +318,7 @@ class Connection():
 							print("Failed to write data into socket...");
 							self.client_socket.close();
 							self.sm.unknown();
+							self.ip_pool.release_ip(self.client_ip);
 					else:
 						try:
 							nack = packet.NegativeAcknowledgementPacket();
@@ -324,10 +330,12 @@ class Connection():
 						print("Invalid credentials were used");
 						self.client_socket.close();
 						self.sm.unknown();
+						self.ip_pool.release_ip(self.client_ip);
 						os.system("ss --tcp state CLOSE-WAIT --kill")
 				except:
 					self.client_socket.close();
 					self.sm.unknown();
+					self.ip_pool.release_ip(self.client_ip);
 					print("Could not parse data");
 			elif self.sm.is_authenticated():
 				print("Sending configuration data to the VPN client")
@@ -335,6 +343,7 @@ class Connection():
 				configuration = packet.ConfigurationPacket();
 				configuration.set_netmask(list(bytearray(self.tun_netmask, encoding="ASCII")));
 				configuration.set_default_gw(list(bytearray(self.tun_address, encoding="ASCII")));
+				print(self.client_ip)
 				configuration.set_ipv4_address(list(bytearray(self.client_ip, encoding="ASCII")));
 				configuration.set_mtu(list(struct.pack("I", self.tun_mtu)));
 				try:
@@ -343,6 +352,7 @@ class Connection():
 				except:
 					self.sm.unknown();
 					self.client_socket.close();
+					self.ip_pool.release_ip(self.client_ip);
 					print("Failed to write into socket...");
 					os.system("ss --tcp state CLOSE-WAIT --kill")
 			elif self.sm.is_configured():
@@ -359,6 +369,7 @@ class Connection():
 			elif self.sm.is_running():
 				if self.data_timeout <= time():
 					self.sm.unknown()
+					self.ip_pool.release_ip(self.client_ip);
 					self.client_socket.close()
 					print("Connection was stalled in running state....")
 					os.system("ss --tcp state CLOSE-WAIT --kill")
@@ -372,6 +383,7 @@ class Connection():
 					#timeout = time() + 30 * 1000
 					self.client_socket.close()
 					self.sm.unknown()
+					self.ip_pool.release_ip(self.client_ip);
 					print("Connection timed out")
 					os.system("ss --tcp state CLOSE-WAIT --kill")
 					break;
