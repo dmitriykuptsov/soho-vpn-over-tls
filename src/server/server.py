@@ -192,6 +192,7 @@ class Connection():
 		try:
 			self.client_socket.send(userdata.get_buffer());
 		except:
+			self.ip_pool.release_ip(self.client_ip);
 			os.system("ss --tcp state CLOSE-WAIT --kill")
 			raise Exception("Socket was closed");
 
