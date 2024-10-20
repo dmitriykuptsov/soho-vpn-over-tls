@@ -125,9 +125,10 @@ class Server():
 	"""
 	def loop(self):
 		while True:
+			conn = None
 			try:
 				(sock, addr) = self.secure_sock.accept();
-				#sock.settimeout(30)
+				sock.settimeout(120)
 				self.client_socket = sock;
 				self.client_address = addr;
 				print("Got connection from %s" % (self.client_address[0]));
@@ -374,6 +375,9 @@ class Connection():
 					self.client_socket.close()
 					print("Connection was stalled in running state....")
 					os.system("ss --tcp state CLOSE-WAIT --kill")
+					self.tun_thread.join();
+					self.tls_thread.join()
+					self.maintenance_thread.join();
 				sleep(10);
 
 	def maintenance_loop(self):
@@ -387,6 +391,9 @@ class Connection():
 					self.ip_pool.release_ip(self.client_ip);
 					print("Connection timed out")
 					os.system("ss --tcp state CLOSE-WAIT --kill")
+					self.tun_thread.join();
+					self.tls_thread.join()
+					self.maintenance_thread.join();
 					break;
 			elif self.sm.is_unknown():
 				timeout = time() + 30 * 1000
