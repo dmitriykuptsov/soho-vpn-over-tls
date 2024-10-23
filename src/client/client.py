@@ -264,15 +264,17 @@ class Client():
 			elif self.sm.is_running():
 				if self.data_timeout < time():
 					self.sm.stalled()
+					print("TIMEOUT....")
 					self.secure_socket.close()
 				sleep(10);
 			elif self.sm.is_stalled():
+				print("Exiting the main loop")
 				self.routing_.restore_default_route(self.default_gw);
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
-				self.tun_thread.join()
-				self.tls_thread.join()
+				print("Exiting the main loop")
 				break;
+		print("Cleaning done... exited the main loop...")
 
 	def exit_handler(self):
 		self.routing_.restore_default_route(self.default_gw);
