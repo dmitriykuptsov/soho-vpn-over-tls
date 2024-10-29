@@ -176,7 +176,7 @@ class Client():
 				print("Connection was closed, please restart the client...")
 				#self.routing_.restore_default_route(self.default_gw);
 				self.sm.stalled();
-				break;
+				exit()
 
 
 	"""
@@ -191,7 +191,7 @@ class Client():
 				print("Connection was closed, please restart the client...");
 				#self.routing_.restore_default_route(self.default_gw);
 				self.sm.stalled();
-				break;
+				exit()
 
 	"""
 	Client's main loop
@@ -273,8 +273,7 @@ class Client():
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
 				print("Exiting the main loop")
-				break;
-		print("Cleaning done... exited the main loop...")
+				exit()
 
 	def exit_handler(self):
 		self.routing_.restore_default_route(self.default_gw);
