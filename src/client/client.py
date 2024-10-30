@@ -266,6 +266,10 @@ class Client():
 					self.sm.stalled()
 					print("TIMEOUT....")
 					self.secure_socket.close()
+					if self.tun_thread.is_alive():
+						self.tun_thread.join()
+					if self.tls_thread.is_alive():
+						self.tls_thread.join()
 				sleep(10);
 			elif self.sm.is_stalled():
 				print("Exiting the main loop")
