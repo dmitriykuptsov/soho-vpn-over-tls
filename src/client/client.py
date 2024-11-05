@@ -56,6 +56,18 @@ import config
 # Exit hook
 import atexit
 
+import logging
+
+# Configure logging to console and file
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("vpn.log")#,
+        #logging.StreamHandler(sys.stdout)
+    ]
+);
+
 # Timing
 from time import sleep, time
 
@@ -81,7 +93,7 @@ class Client():
 		hostname = config["SERVER_HOSTNAME"]
 		if not config.get("SERVER_IP"):
 			config["SERVER_IP"] = socket.gethostbyname(hostname)
-			print("Using %s as server IP ..." % config["SERVER_IP"])
+			logging.debug("Using %s as server IP ..." % config["SERVER_IP"])
 		self.sock = socket.create_connection((config["SERVER_IP"], config["SERVER_PORT"]));
 		#self.sock.settimeout(30)
 		self.ctx.check_hostname = True;
@@ -94,7 +106,7 @@ class Client():
 			config["DEFAULT_GW"] = get_default_gateway()
 			if not config["DEFAULT_GW"]:
 				raise Exception('Could not determine default gateway, please configure manually')
-			print("Using %s as default gateway ..." % config["DEFAULT_GW"])
+			logging.debug("Using %s as default gateway ..." % config["DEFAULT_GW"])
 		self.default_gw = config["DEFAULT_GW"];
 		self.dns_server = config["DNS_SERVER"];
 		self.server_ip = config["SERVER_IP"];
@@ -173,7 +185,7 @@ class Client():
 			try:
 				self.write_to_tun(self.read_from_secure_socket());
 			except:
-				print("Connection was closed, please restart the client...")
+				logging.debug("Connection was closed, please restart the client...")
 				#self.routing_.restore_default_route(self.default_gw);
 				self.sm.stalled();
 				exit()
@@ -188,7 +200,7 @@ class Client():
 			try:
 				self.write_to_secure_socket(self.read_from_tun());
 			except:
-				print("Connection was closed, please restart the client...");
+				logging.debug("Connection was closed, please restart the client...");
 				#self.routing_.restore_default_route(self.default_gw);
 				self.sm.stalled();
 				exit()
@@ -201,7 +213,7 @@ class Client():
 			if self.sm.is_unknown():
 				continue;
 			elif self.sm.is_connected():
-				print("Sending authentication data...");
+				logging.debug("Sending authentication data...");
 				p = packet.AuthenticationPacket();
 				p.set_username(bytearray(config["USERNAME"], encoding="ASCII"));
 				p.set_password(bytearray(config["PASSWORD"], encoding="ASCII"));
@@ -212,10 +224,10 @@ class Client():
 				if len(buf) > 0:
 					p = packet.Packet(buf);
 					if p.get_type() == packet.PACKET_TYPE_ACK:
-						print("Authentication succeeded...");
+						logging.debug("Authentication succeeded...");
 						self.sm.authenticated();
 					elif p.get_type() == packet.PACKET_TYPE_NACK:
-						print("Authentication failed...");
+						logging.debug("Authentication failed...");
 						self.sm.stalled();
 						self.secure_socket.close();
 						continue;
@@ -230,11 +242,11 @@ class Client():
 					if p.get_type() != packet.PACKET_TYPE_CONFIGURATION:
 						self.sm.stalled();
 						self.secure_socket.close();
-					print("Got configuration packet...")
+					logging.debug("Got configuration packet...")
 					if (utils.Utils.check_buffer_is_empty(p.get_ipv4_address()) or
 						utils.Utils.check_buffer_is_empty(p.get_netmask()) or
 						utils.Utils.check_buffer_is_empty(p.get_mtu())):
-						print("Invalid configuration");
+						logging.debug("Invalid configuration");
 						self.sm.stalled();
 						self.secure_socket.close();
 						continue;
@@ -272,11 +284,15 @@ class Client():
 					#	self.tls_thread.join()
 				sleep(10);
 			elif self.sm.is_stalled():
-				print("Exiting the main loop")
+				logging.debug("Exiting the main loop")
 				self.routing_.restore_default_route(self.default_gw);
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
-				print("Exiting the main loop")
+				if self.tun_thread.is_alive():
+					self.tun_thread.join()
+				if self.tls_thread.is_alive():
+					self.tls_thread.join()
+				logging.debug("Exiting the main loop")
 				exit()
 
 	def exit_handler(self):
@@ -291,4 +307,4 @@ client = Client(config);
 # Register exit hook
 atexit.register(client.exit_handler);
 client.loop();
-print("Exiting the main loop....")
+logging.debug("Exiting the main loop....")
