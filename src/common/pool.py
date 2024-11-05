@@ -9,12 +9,14 @@ from math import log
 class IpPool():
 	def __init__(self, gateway_ip, netmask):
 		self.counter = 1;
+		self.gateway_ip = gateway_ip
 		self.max_hosts = int(log(utils.Utils.ip_to_int("255.255.255.255") ^ utils.Utils.ip_to_int(netmask), 2)) - 2;
+		print(self.max_hosts)
 		self.network_part = utils.Utils.ip_to_int(gateway_ip) & utils.Utils.ip_to_int(netmask);
 		if (utils.Utils.ip_to_int("255.255.255.255") ^ utils.Utils.ip_to_int(netmask)) == 0x0:
 			raise Exception("Netmask cannot be 255.255.255.255");
 		self.pool = [gateway_ip];
-
+	
 	def lease_ip(self):
 		self.counter = 1;
 		next_ip = self.network_part + self.counter;
@@ -22,6 +24,7 @@ class IpPool():
 			self.counter += 1;
 			if not utils.Utils.int_to_ip(next_ip) in self.pool:
 				self.pool.append(utils.Utils.int_to_ip(next_ip));
+				print(utils.Utils.int_to_ip(next_ip))
 				return utils.Utils.int_to_ip(next_ip);
 			next_ip = self.network_part + self.counter;
 		return None;

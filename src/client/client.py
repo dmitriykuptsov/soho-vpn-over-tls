@@ -169,7 +169,7 @@ class Client():
 
 	def tun_loop(self):
 		print("Starting to read from TLS socket...")
-		while True:
+		while not self.sm.stalled():
 			try:
 				self.write_to_tun(self.read_from_secure_socket());
 			except:
@@ -184,7 +184,7 @@ class Client():
 	"""
 	def tls_loop(self):
 		print("Starting to read from tun device....")
-		while True:
+		while not self.sm.stalled():
 			try:
 				self.write_to_secure_socket(self.read_from_tun());
 			except:
@@ -265,11 +265,11 @@ class Client():
 				if self.data_timeout < time():
 					self.sm.stalled()
 					print("TIMEOUT....")
-					self.secure_socket.close()
-					if self.tun_thread.is_alive():
-						self.tun_thread.join()
-					if self.tls_thread.is_alive():
-						self.tls_thread.join()
+					#self.secure_socket.close()
+					#if self.tun_thread.is_alive():
+					#	self.tun_thread.join()
+					#if self.tls_thread.is_alive():
+					#	self.tls_thread.join()
 				sleep(10);
 			elif self.sm.is_stalled():
 				print("Exiting the main loop")

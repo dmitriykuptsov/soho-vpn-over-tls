@@ -375,9 +375,6 @@ class Connection():
 					self.client_socket.close()
 					print("Connection was stalled in running state....")
 					os.system("ss --tcp state CLOSE-WAIT --kill")
-					self.tun_thread.join();
-					self.tls_thread.join()
-					self.maintenance_thread.join();
 				sleep(10);
 
 	def maintenance_loop(self):

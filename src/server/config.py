@@ -1,6 +1,6 @@
 config = {
 	"TUN_ADDRESS": "10.0.0.1",
-	"TUN_NETMASK": "255.255.255.0",
+	"TUN_NETMASK": "255.255.0.0",
 	"LISTEN_ADDRESS": "0.0.0.0",
 	"LISTEN_PORT": 443,
 	"TUN_NAME": "tun0",
