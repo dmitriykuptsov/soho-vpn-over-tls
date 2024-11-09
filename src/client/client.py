@@ -180,30 +180,29 @@ class Client():
 	"""
 
 	def tun_loop(self):
-		print("Starting to read from TLS socket...")
-		while not self.sm.stalled():
+		logging.debug("Starting to read from TLS socket...")
+		while not self.sm.is_stalled():
 			try:
 				self.write_to_tun(self.read_from_secure_socket());
 			except:
-				logging.debug("Connection was closed, please restart the client...")
+				logging.debug("Connection was closed in TUN loop, please restart the client...")
 				#self.routing_.restore_default_route(self.default_gw);
 				self.sm.stalled();
-				exit()
-
+		logging.debug("TUN loop completed...")
 
 	"""
 	TLS loop
 	"""
 	def tls_loop(self):
-		print("Starting to read from tun device....")
-		while not self.sm.stalled():
+		logging.debug("Starting to read from tun device....")
+		while not self.sm.is_stalled():
 			try:
 				self.write_to_secure_socket(self.read_from_tun());
 			except:
-				logging.debug("Connection was closed, please restart the client...");
+				logging.debug("Connection was closed TLS loop, please restart the client...");
 				#self.routing_.restore_default_route(self.default_gw);
 				self.sm.stalled();
-				exit()
+		logging.debug("TLS loop completed...")
 
 	"""
 	Client's main loop
@@ -211,6 +210,7 @@ class Client():
 	def loop(self):
 		while True:
 			if self.sm.is_unknown():
+				logging.debug("unknown....")
 				continue;
 			elif self.sm.is_connected():
 				logging.debug("Sending authentication data...");
@@ -232,6 +232,7 @@ class Client():
 						self.secure_socket.close();
 						continue;
 				else:
+					logging.debug("invalid authentication packet...")
 					self.sm.stalled();
 					self.secure_socket.close();
 					continue;
@@ -241,7 +242,9 @@ class Client():
 					p = packet.ConfigurationPacket(buf);
 					if p.get_type() != packet.PACKET_TYPE_CONFIGURATION:
 						self.sm.stalled();
+						logging.debug("Got invalid configuration packet...")
 						self.secure_socket.close();
+						continue;
 					logging.debug("Got configuration packet...")
 					if (utils.Utils.check_buffer_is_empty(p.get_ipv4_address()) or
 						utils.Utils.check_buffer_is_empty(p.get_netmask()) or
@@ -262,6 +265,7 @@ class Client():
 					self.nat_.masquerade_tun_interface();
 					self.sm.configured();
 				else:
+					logging.debug("Empty buffer...")
 					self.sm.stalled();
 					self.secure_socket.close();
 					continue;
@@ -273,25 +277,19 @@ class Client():
 				self.tun_thread.start();
 				self.tls_thread.start();
 				self.sm.running();
+				logging.debug("Configured......")
 			elif self.sm.is_running():
 				if self.data_timeout < time():
 					self.sm.stalled()
-					print("TIMEOUT....")
-					#self.secure_socket.close()
-					#if self.tun_thread.is_alive():
-					#	self.tun_thread.join()
-					#if self.tls_thread.is_alive():
-					#	self.tls_thread.join()
+					logging.debug("TIMEOUT....")
 				sleep(10);
+				logging.debug("running periodic task....")
+				print(self.sm.is_running())
 			elif self.sm.is_stalled():
 				logging.debug("Exiting the main loop")
 				self.routing_.restore_default_route(self.default_gw);
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
-				if self.tun_thread.is_alive():
-					self.tun_thread.join()
-				if self.tls_thread.is_alive():
-					self.tls_thread.join()
 				logging.debug("Exiting the main loop")
 				exit()
 
