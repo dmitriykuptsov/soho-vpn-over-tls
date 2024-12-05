@@ -230,7 +230,7 @@ class Connection():
 	"""
 
 	def tun_loop(self):
-		while True:
+		while not self.sm.is_unknown():
 			try:
 				self.write_to_tun(self.read_from_secure_socket());
 			except:
@@ -246,7 +246,7 @@ class Connection():
 	TLS loop
 	"""
 	def tls_loop(self):
-		while True:
+		while not self.sm.is_unknown():
 			try:
 				self.write_to_secure_socket(self.read_from_tun());
 			except:
