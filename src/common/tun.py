@@ -27,6 +27,8 @@ class Tun():
 	def write(self, buf):
 		return self.tun.write(buf);
 
+	def close(self):
+		self.tun.close()
 """
 tun = Tun('tun0', '10.0.1.1', '255.255.255.0', 1500);
 while True:

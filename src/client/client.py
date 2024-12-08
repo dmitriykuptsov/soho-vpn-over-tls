@@ -181,7 +181,7 @@ class Client():
 
 	def tun_loop(self):
 		logging.debug("Starting to read from TLS socket...")
-		while not self.sm.is_stalled():
+		while self.sm != None and not self.sm.is_stalled():
 			try:
 				self.write_to_tun(self.read_from_secure_socket());
 			except:
@@ -195,13 +195,14 @@ class Client():
 	"""
 	def tls_loop(self):
 		logging.debug("Starting to read from tun device....")
-		while not self.sm.is_stalled():
+		while self.sm != None and not self.sm.is_stalled():
 			try:
 				self.write_to_secure_socket(self.read_from_tun());
 			except:
 				logging.debug("Connection was closed TLS loop, please restart the client...");
 				#self.routing_.restore_default_route(self.default_gw);
 				self.sm.stalled();
+				self.tun.close();
 		logging.debug("TLS loop completed...")
 
 	"""
@@ -272,8 +273,8 @@ class Client():
 			elif self.sm.is_configured():
 				self.tun_thread = threading.Thread(target = self.tun_loop);
 				self.tls_thread = threading.Thread(target = self.tls_loop);
-				self.tun_thread.daemon = True;
-				self.tls_thread.daemon = True;
+				#self.tun_thread.daemon = True;
+				#self.tls_thread.daemon = True;
 				self.tun_thread.start();
 				self.tls_thread.start();
 				self.sm.running();
@@ -287,10 +288,11 @@ class Client():
 				print(self.sm.is_running())
 			elif self.sm.is_stalled():
 				logging.debug("Exiting the main loop")
+				sleep(10)
 				self.routing_.restore_default_route(self.default_gw);
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
-				logging.debug("Exiting the main loop")
+				logging.debug("Exiting the main loop ....")
 				exit()
 
 	def exit_handler(self):
