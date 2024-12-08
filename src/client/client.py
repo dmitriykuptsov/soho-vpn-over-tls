@@ -188,6 +188,7 @@ class Client():
 				logging.debug("Connection was closed in TUN loop, please restart the client...")
 				#self.routing_.restore_default_route(self.default_gw);
 				self.sm.stalled();
+				self.tun.close();
 		logging.debug("TUN loop completed...")
 
 	"""
