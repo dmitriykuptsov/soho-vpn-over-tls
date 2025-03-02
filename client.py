@@ -216,14 +216,11 @@ class Client():
 			while reading:
 				command = conn.recv(100);
 				command=command.decode("ASCII").strip()
-				logging.critical(command.strip())
-				logging.critical(command == "status")
 				if command == "status":
 					conn.send("Status: \n".encode("ASCII"))
 					conn.send(("State: %s \n" % (str(self.sm))).encode("ASCII"))
 					logging.critical("State: %s \n" % (str(self.sm)))
-					print("State: %s \n" % (str(self.sm)))
-				elif command.strip() == "exit" or command.strip() == "":
+				elif command.strip() == "exit" or command.strip() == "" or command.strip() == "\n":
 					conn.close();
 					reading = False;
 			s.close()
@@ -316,7 +313,7 @@ class Client():
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
 				logging.debug("Exiting the main loop ....")
-				break;
+				exit();
 
 	def exit_handler(self):
 		self.routing_.restore_default_route(self.default_gw);
