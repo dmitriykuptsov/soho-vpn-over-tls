@@ -206,6 +206,28 @@ class Client():
 				self.tun.close();
 		logging.debug("TLS loop completed...")
 
+	def status_loop(self):
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		s.bind(("127.0.0.1", 9004))
+		s.listen(5)
+		while True:
+			reading = True
+			conn, addr = s.accept()
+			while reading:
+				command = conn.recv(100);
+				command=command.decode("ASCII").strip()
+				logging.critical(command.strip())
+				logging.critical(command == "status")
+				if command == "status":
+					conn.send("Status: \n".encode("ASCII"))
+					conn.send(("State: %s \n" % (str(self.sm))).encode("ASCII"))
+					logging.critical("State: %s \n" % (str(self.sm)))
+					print("State: %s \n" % (str(self.sm)))
+				elif command.strip() == "exit" or command.strip() == "":
+					conn.close();
+					reading = False;
+		s.close()
+
 	"""
 	Client's main loop
 	"""
@@ -307,5 +329,7 @@ client = Client(config);
 
 # Register exit hook
 atexit.register(client.exit_handler);
+thread_status = threading.Thread(target=client.status_loop);
+thread_status.start()
 client.loop();
 logging.debug("Exiting the main loop....")

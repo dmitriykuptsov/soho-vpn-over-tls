@@ -108,3 +108,6 @@ class StateMachine():
 
 	def stalled(self):
 		self.state.set_state(VPN_TLS_STATE_STALLED);
+
+	def __str__(self):
+		return str(self.state.get_state())
