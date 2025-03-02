@@ -216,8 +216,6 @@ class Client():
 			while reading:
 				command = conn.recv(100);
 				command=command.decode("ASCII").strip()
-				logging.critical(command.strip())
-				logging.critical(command == "status")
 				if command == "status":
 					conn.send("Status: \n".encode("ASCII"))
 					conn.send(("State: %s \n" % (str(self.sm))).encode("ASCII"))
@@ -294,8 +292,8 @@ class Client():
 					self.secure_socket.close();
 					continue;
 			elif self.sm.is_configured():
-				self.tun_thread = threading.Thread(target = self.tun_loop);
-				self.tls_thread = threading.Thread(target = self.tls_loop);
+				self.tun_thread = threading.Thread(target = self.tun_loop, daemon = True);
+				self.tls_thread = threading.Thread(target = self.tls_loop, daemon = True);
 				#self.tun_thread.daemon = True;
 				#self.tls_thread.daemon = True;
 				self.tun_thread.start();
@@ -329,7 +327,7 @@ client = Client(config);
 
 # Register exit hook
 atexit.register(client.exit_handler);
-thread_status = threading.Thread(target=client.status_loop);
+thread_status = threading.Thread(target=client.status_loop, daemon = True);
 thread_status.start()
 client.loop();
 logging.debug("Exiting the main loop....")
