@@ -220,10 +220,11 @@ class Client():
 					conn.send("Status: \n".encode("ASCII"))
 					conn.send(("State: %s \n" % (str(self.sm))).encode("ASCII"))
 					logging.critical("State: %s \n" % (str(self.sm)))
-				elif command.strip() == "exit" or command.strip() == "" or command.strip() == "\n":
+					print("State: %s \n" % (str(self.sm)))
+				elif command.strip() == "exit" or command.strip() == "":
 					conn.close();
 					reading = False;
-			s.close()
+		s.close()
 
 	"""
 	Client's main loop
@@ -291,8 +292,8 @@ class Client():
 					self.secure_socket.close();
 					continue;
 			elif self.sm.is_configured():
-				self.tun_thread = threading.Thread(target = self.tun_loop);
-				self.tls_thread = threading.Thread(target = self.tls_loop);
+				self.tun_thread = threading.Thread(target = self.tun_loop, daemon = True);
+				self.tls_thread = threading.Thread(target = self.tls_loop, daemon = True);
 				#self.tun_thread.daemon = True;
 				#self.tls_thread.daemon = True;
 				self.tun_thread.start();
@@ -313,7 +314,7 @@ class Client():
 				self.nat_.disable_masquerade_tun_interface();
 				self.nat_.disable_forwarding();
 				logging.debug("Exiting the main loop ....")
-				exit();
+				break;
 
 	def exit_handler(self):
 		self.routing_.restore_default_route(self.default_gw);
