@@ -123,18 +123,20 @@ class Client():
 		self.dns_ = dns.DNS();
 		self.nat_ = nat.NAT();
 
-	"""
-	Writes data to TUN interface
-	"""
+	
 	def write_to_tun(self, payload):
+		"""
+		Writes data to TUN interface
+		"""
 		if not payload:
 			return;
 		self.tun.write(bytes(bytearray(payload)));
 
-	"""
-	Writes data packet into secure socket
-	"""
+	
 	def write_to_secure_socket(self, payload):
+		"""
+		Writes data packet into secure socket
+		"""
 		if not payload:
 			return;
 		#print("Got data on TUN interface");
@@ -145,10 +147,11 @@ class Client():
 		self.secure_socket.send(userdata.get_buffer());
 		self.data_timeout = time() + config["DATA_TIMEOUT"];
 
-	"""
-	Reads data from secure socket
-	"""
+	
 	def read_from_secure_socket(self):
+		"""
+		Reads data from secure socket
+		"""
 		buf = bytearray(self.secure_socket.recv(self.buffer_size));
 		if len(buf) == 0:
 			raise Exception("Socket was closed");
@@ -167,19 +170,18 @@ class Client():
 			return None;
 		return userdata.get_payload();
 
-	"""
-	Reads data from TUN interface
-	"""
 	def read_from_tun(self):
+		"""
+		Reads data from TUN interface
+		"""
 		# https://stackoverflow.com/questions/43449664/why-the-leading-4bytes-data-missing-when-sending-raw-bytes-data-to-a-tap-device
 		buf = bytearray(self.tun.read(self.tun_mtu));
 		return buf;
 
-	"""
-	TUN read loop
-	"""
-
 	def tun_loop(self):
+		"""
+		TUN read loop
+		"""
 		logging.debug("Starting to read from TLS socket...")
 		while self.sm != None and not self.sm.is_stalled():
 			try:
@@ -191,10 +193,10 @@ class Client():
 				self.tun.close();
 		logging.debug("TUN loop completed...")
 
-	"""
-	TLS loop
-	"""
 	def tls_loop(self):
+		"""
+		TLS loop
+		"""
 		logging.debug("Starting to read from tun device....")
 		while self.sm != None and not self.sm.is_stalled():
 			try:
@@ -219,6 +221,8 @@ class Client():
 				if command == "status":
 					conn.send("Status: \n".encode("ASCII"))
 					conn.send(("State: %s \n" % (str(self.sm))).encode("ASCII"))
+					conn.send(("TUN thread: %s \n" % (self.tun_thread.is_alive())).encode("ASCII"))
+					conn.send(("TLS thread: %s \n" % (self.tls_thread.is_alive())).encode("ASCII"))
 					logging.critical("State: %s \n" % (str(self.sm)))
 					print("State: %s \n" % (str(self.sm)))
 				elif command.strip() == "exit" or command.strip() == "":
@@ -226,10 +230,10 @@ class Client():
 					reading = False;
 		s.close()
 
-	"""
-	Client's main loop
-	"""
 	def loop(self):
+		"""
+		Client's main loop
+		"""
 		while True:
 			if self.sm.is_unknown():
 				logging.debug("unknown....")
