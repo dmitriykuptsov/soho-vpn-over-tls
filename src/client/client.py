@@ -57,13 +57,14 @@ import config
 import atexit
 
 import logging
+from logging.handlers import RotatingFileHandler
 
 # Configure logging to console and file
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("vpn.log")#,
+        RotatingFileHandler("vpn.log")#,
         #logging.StreamHandler(sys.stdout)
     ]
 );
