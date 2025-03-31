@@ -27,7 +27,7 @@ class Utils():
 	"""
 	@staticmethod
 	def check_buffer_is_empty(buf):
-		if buf == None or buf == None:
+		if buf == None:
 			return True;
 
 		if not isinstance(buf, bytearray) and not isinstance(buf, bytes):
